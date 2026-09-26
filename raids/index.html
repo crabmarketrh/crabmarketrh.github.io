@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The tide pools | Crab Market</title>
+<meta name="description" content="Your crab's pay collects in its tide pool. Anyone can raid a pool. Claim yours before they do.">
+<link rel="canonical" href="https://crabmarket.io/raids/">
+<meta property="og:url" content="https://crabmarket.io/raids/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The tide pools | Crab Market">
+<meta property="og:description" content="Your crab's pay collects in its tide pool. Anyone can raid a pool. Claim yours before they do.">
+<meta property="og:image" content="https://crabmarket.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffaf0">
+<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css?v=1790445814">
+</head>
+<body>
+<header id="top"></header>
+<main>
+<section class="band sea" style="padding-block:clamp(28px,4vw,52px)">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">The tide pools</span><h1 class="pix" style="font-size:clamp(28px,4.4vw,46px);line-height:1.1">Take your pay before someone else does.</h1><p class="lede">Your crab's pay collects in the tide pool on its island. Any awake crab can raid a pool and take half of what is in it. Claim yours and there is nothing left to take.</p></div>
+
+    <div class="raidtoy">
+      <div class="pond" id="pondMine"><span class="tag">Your crab</span><div class="frame"><canvas class="px" id="seaMine" role="img" aria-label="Your crab's island, with its tide pool"></canvas></div>
+        <dl class="pstat"><div><dt>In your pool</dt><dd id="myPool">$0.00</dd></div><div><dt>Claimed, in your wallet</dt><dd id="myWallet">$0.00</dd></div></dl>
+        <p class="whenline">Your pool: <span class="cdchip on" id="myWhen">too small to raid</span></p>
+        <div class="row"><button class="btn go" type="button" id="claim">Claim my pool</button></div></div>
+      <div class="pond" id="pondThem"><span class="tag">Someone else's crab</span><div class="frame"><canvas class="px" id="seaThem" role="img" aria-label="A rival crab's island, with its tide pool"></canvas></div>
+        <dl class="pstat"><div><dt>In their pool</dt><dd id="theirPool">$0.00</dd></div><div><dt>You would take</dt><dd id="wouldTake">$0.00</dd></div></dl>
+        <p class="whenline">Their pool: <span class="cdchip off" id="theirWhen">too small to raid</span></p>
+        <div class="row"><button class="btn" type="button" id="raid">Raid their pool</button></div></div>
+      <canvas class="fxlayer" id="raidFx" width="900" height="420" aria-hidden="true"></canvas>
+    </div>
+    <p class="pline" id="story" role="status">An hour passes every few seconds. Watch what happens if you leave your pool alone.</p>
+    <dl class="stats onsea" aria-label="The game in numbers">
+      <div><dt>a raid takes</dt><dd><span data-cfg="raid.takePct">50</span>%</dd></div>
+      <div><dt>it burns</dt><dd><span data-cfg="raid.fee">10,000</span></dd></div>
+      <div><dt>same pool, once every</dt><dd><span data-cfg="raid.cooldownHours">12</span>h</dd></div>
+      <div><dt>burned in this game</dt><dd id="burned">0</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band butter" id="board" data-check="board">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Who can you raid</span><h2>The board is public.</h2><p class="lede">Every pool that is worth raiding is on one list, biggest first, for everyone to see. If your pool is up there, so is everyone else's chance to take half of it.</p></div>
+    <div class="boardwrap">
+      <span class="tag" id="boardTag">An example board. After launch this is the real one, updated every hour.</span>
+      <div class="scroll" tabindex="0" role="region" aria-label="The raid board, scrolls sideways"><table class="board"><thead><tr><th>Crab</th><th>Level</th><th>In the pool</th><th>Can be raided</th><th><span class="vh">Action</span></th></tr></thead><tbody id="boardRows"></tbody></table></div>
+    </div>
+    <p class="note" style="margin-top:20px"><b>A pool only reaches the board when it is worth raiding.</b> Pools under <span data-cfg="raid.minPool">5</span> USDG are never listed and can never be raided. A pool that was hit in the last <span data-cfg="raid.cooldownHours">12</span> hours shows the time left before anyone can hit it again.</p>
+    <p class="lede" id="mine" style="margin-top:16px">At launch your own crabs sit at the top of this board, so you can see what you are leaving out and claim it in one tap.</p>
+  </div>
+</section>
+
+<section class="band" id="how" data-check="how">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">The rules</span><h2>Six things to know.</h2></div>
+    <div class="grid g3">
+      <article class="card"><span class="n">1</span><h3>Only unclaimed pay</h3><p>A raid can only take what is still sitting in the pool. Claim it and it is yours for good. Your shell level, your items and your crab itself can never be taken.</p></article>
+      <article class="card"><span class="n">2</span><h3>Raiding burns <span data-cfg="token.symbol">$CRAB</span></h3><p>Every raid burns <span data-cfg="raid.fee">10,000</span> <span data-cfg="token.symbol">$CRAB</span>, gone for good. Nobody is paid that fee. It also means a small pool is never worth raiding.</p></article>
+      <article class="card"><span class="n">3</span><h3>Small pools are safe</h3><p>A pool holding less than <span data-cfg="raid.minPool">5</span> USDG cannot be raided at all, and the same pool can only be hit once every <span data-cfg="raid.cooldownHours">12</span> hours.</p></article>
+      <article class="card"><span class="n">4</span><h3>You need an awake crab</h3><p>You raid with a crab of your own, and it must be awake. A sleeping crab can neither raid nor be raided, because it has no pool.</p></article>
+      <article class="card"><span class="n">5</span><h3>Some items guard you</h3><p>A few things in the shop take points off any raid against you: the observatory, the golden anchor and the kraken. They use a slot like any other item, so guarding your pool costs you a slot that could have earned more. <a href="/shop/">See them in the shop.</a></p></article>
+      <article class="card"><span class="n">6</span><h3>Ten crabs are untouchable</h3><p>Guarding items only shave points: together they take at most <span data-cfg="raid.guardCapPct">25</span> off, so the worst a raid can be reduced to is <span id="guardFloor">25</span>% of the pool. The one exception is <b>the sea fort</b>. Only <span data-cfg="items.immuneLimit">10</span> will ever exist, and a crab holding one cannot be raided at all. For every other crab, claiming is still the only way to lose nothing. <a href="/shop/">See the fort in the shop.</a></p></article>
+    </div>
+    <p class="note" style="margin-top:24px"><b>This is the part of the project that can cost you money.</b> Pay that you have not claimed is not safe. If that is not for you, claim often, or leave your crab asleep and it is out of the game entirely.</p>
+    <p class="lede" id="liveState" style="margin-top:20px">Raiding is not switched on yet. It starts <span data-cfg="raid.startsText">a couple of days after launch</span>, once the hourly rounds have run cleanly. Until then every pool is safe. <a href="/tides/#raids">Every raid will be listed here.</a></p>
+  </div>
+</section>
+</main>
+<footer id="foot"></footer>
+<script src="/config.js?v=1790445814"></script>
+<script src="/js/art/engine.js?v=1790445814"></script>
+<script src="/js/art/crab.js?v=1790445814"></script>
+<script src="/js/art/world.js?v=1790445814"></script>
+<script src="/js/art/decode.js?v=1790445814"></script>
+<script src="/js/ui.js?v=1790445814"></script>
+<script src="/js/pools.js?v=1790445814"></script>
+<script src="/js/hunt.js?v=1790445814"></script>
+</body>
+</html>

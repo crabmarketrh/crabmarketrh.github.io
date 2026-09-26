@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The tides, on the record | Crab Market</title>
+<meta name="description" content="Every hourly tide of Crab Market: how big the pot was, what it bought, how many crabs were paid, and the transaction to check it yourself.">
+<link rel="canonical" href="https://crabmarket.io/tides/">
+<meta property="og:url" content="https://crabmarket.io/tides/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The tides, on the record | Crab Market">
+<meta property="og:description" content="Every hourly tide: the pot, what it bought, how many crabs were paid, and the transaction to check it yourself.">
+<meta property="og:image" content="https://crabmarket.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffaf0">
+<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css?v=1790445814">
+<link rel="stylesheet" href="/css/tides.css?v=1790445814">
+</head>
+<body>
+<header id="top"></header>
+<main>
+
+<section class="band sea" style="padding-block:clamp(32px,5vw,56px)" data-check="hero">
+  <div class="wrap td-hero">
+    <div class="head" style="margin:0"><span class="eyebrow">The tides</span><h1 class="pix td-h1">Every tide, on the record.</h1><p class="lede">Once an hour the pot buys <span data-cfg="payouts.assets">USDG (digital dollars)</span> and it collects in each awake crab's tide pool. This page lists every one of those tides, with the transaction, so you never have to take our word for it.</p></div>
+    <div class="td-clock" role="timer" aria-live="off" data-tideclock><span class="lab">Next tide in</span><span class="digits" id="tdDigits">00:00</span><div class="bar"><i id="tdBar"></i></div><span class="lab" id="tdClockNote">The token is not live yet, so this clock only shows the rhythm.</span></div>
+  </div>
+</section>
+
+<section class="band" id="record" data-check="record">
+  <div class="wrap">
+    <div class="td-tiles" id="tdTiles">
+      <div class="td-tile"><span class="lab">Tides so far</span><b id="tTides">0</b></div>
+      <div class="td-tile"><span class="lab">Paid to crabs so far</span><b id="tPaid">Nothing yet</b></div>
+      <div class="td-tile"><span class="lab">Last tide</span><b id="tLast">None yet</b></div>
+      <div class="td-tile"><span class="lab">Empty tides</span><b id="tEmpty">0</b></div>
+    </div>
+    <p class="banner" id="tdState" role="status" style="margin-top:22px">No tides yet. <span data-cfg="token.symbol">$CRAB</span> is not live, so the pot has never filled and no crab has been paid. When the first tide comes in, it shows up here.</p>
+    <div class="td-table" id="tdTable" role="table" aria-label="Hourly tides, newest first">
+      <div class="td-row td-head" role="row"><span role="columnheader">When (UTC)</span><span role="columnheader">The pot, in <span data-cfg="payouts.symbol">USDG</span></span><span role="columnheader">Crabs paid</span><span role="columnheader">Check it</span></div>
+      <div id="tdRows"></div>
+    </div>
+    <div class="row" style="margin-top:18px"><button class="btn" type="button" id="tdMore" hidden>Show older tides</button><a class="btn go sm" href="/token/#sim" id="tdSim">See what a tide could pay</a><a class="btn sm" href="/list/" data-cta>Get on the list</a></div>
+    <p class="note" id="tdNote"><b>Empty hours are listed too.</b> If nobody trades in an hour, the pot is empty and that tide pays nothing. Those hours stay on this page. A record that only shows the good hours is not a record.</p>
+  </div>
+</section>
+
+<section class="band lilac" id="raids" data-check="raids">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">The raid feed</span><h2>Every raid, on the record too.</h2><p class="lede">Pay waits in a crab's tide pool until its owner claims it. While it waits, any other awake crab can raid that pool and take <span data-cfg="raid.takePct">50</span>% of what is in it. Every raid that ever happens is listed here, both sides named. <a href="/raids/">The pools page explains the rules and lets you try a raid.</a></p></div>
+    <p class="banner" id="rdState" role="status">No raids yet.</p>
+    <div class="td-table" id="rdTable" role="table" aria-label="Raids, newest first">
+      <div class="td-row td-head" role="row"><span role="columnheader">When (UTC)</span><span role="columnheader">What happened</span><span role="columnheader">Taken</span><span role="columnheader">Check it</span></div>
+      <div id="rdRows"></div>
+    </div>
+    <div class="row" style="margin-top:18px"><button class="btn" type="button" id="rdMore" hidden>Show older raids</button><a class="btn go sm" href="/raids/">Play a raid</a></div>
+    <p class="note"><b>Claiming is the defence.</b> An empty pool cannot be raided, and a pool holding less than <span data-cfg="raid.minPool">5</span> <span data-cfg="payouts.symbol">USDG</span> cannot be raided at all. A pool can only be hit once every <span data-cfg="raid.cooldownHours">12</span> hours, and a crab can only raid once every <span data-cfg="raid.cooldownHours">12</span> hours. Every raid burns a fixed <span data-cfg="raid.fee">10,000</span> <span data-cfg="token.symbol">$CRAB</span>, which goes to nobody.</p>
+  </div>
+</section>
+
+<section class="band mint" id="check" data-check="check">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Do not trust, check</span><h2>How to check a tide yourself.</h2></div>
+    <div class="grid g3">
+      <article class="card"><span class="n">1</span><h3>Open the transaction</h3><p>Every row links to the transaction on the chain's public explorer. It shows how much <span data-cfg="payouts.symbol">USDG</span> the pot bought and which crabs were paid.</p></article>
+      <article class="card"><span class="n">2</span><h3>Check the contract</h3><p id="tdEngine">The contract that runs the tide is not deployed yet. Its address will be listed here and in the docs, and nowhere else first.</p></article>
+      <article class="card"><span class="n">3</span><h3>Look inside a pool</h3><p>A tide pool is not a wallet. It is what the tide contract owes that crab, and it is visible on the explorer: each tide arriving, each raid leaving, and what is still waiting to be claimed. <span data-hunt="tides"></span></p></article>
+    </div>
+    <p class="note">Pay comes only from trading fees on <span data-cfg="token.symbol">$CRAB</span>. It rises and falls with trading, and it can be zero. It also waits in your crab's tide pool until you claim it, and a raid can take <span data-cfg="raid.takePct">50</span>% of what is waiting. <a href="/token/#sim">Try the pay simulator</a> or <a href="/docs/#risks">read the risks</a>.</p>
+  </div>
+</section>
+
+</main>
+<footer id="foot"></footer>
+<script src="/config.js?v=1790445814"></script>
+<script src="/js/art/engine.js?v=1790445814"></script>
+<script src="/js/art/crab.js?v=1790445814"></script>
+<script src="/js/art/world.js?v=1790445814"></script>
+<script src="/js/ui.js?v=1790445814"></script>
+<script src="/js/tides.js?v=1790445814"></script>
+<script src="/js/beach.js?v=1790445814"></script>
+<script src="/js/tideclock.js?v=1790445814"></script>
+<script src="/js/hunt.js?v=1790445814"></script>
+</body>
+</html>

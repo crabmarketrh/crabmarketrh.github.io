@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /pools/
+
+Sitemap: https://crabmarket.io/sitemap.xml

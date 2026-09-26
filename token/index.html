@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$CRAB, the token | Crab Market</title>
+<meta name="description" content="$CRAB is the token of Crab Market. Every trade pays a fee, a fixed share fills an hourly pot, and the pot buys USDG, digital dollars, for the crabs that are awake.">
+<link rel="canonical" href="https://crabmarket.io/token/">
+<meta property="og:url" content="https://crabmarket.io/token/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="$CRAB, the token | Crab Market">
+<meta property="og:description" content="Every trade feeds the hourly pot. Every wake and level-up burns $CRAB for good. See the loop and try the pay simulator.">
+<meta property="og:image" content="https://crabmarket.io/img/og-token.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffaf0">
+<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css?v=1790445814">
+<link rel="stylesheet" href="/css/token.css?v=1790445814">
+</head>
+<body>
+<header id="top"></header>
+<main>
+
+<section class="tk-hero" data-check="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">The token</span>
+      <h1><em><span data-cfg="token.symbol">$CRAB</span></em> feeds the crabs.</h1>
+      <p class="lede">Every trade pays a fee that fills the crabs' hourly pot. Every wake and every level-up burns <span data-cfg="token.symbol">$CRAB</span> for good.</p>
+      <div class="row">
+        <a class="btn go" href="#sim" data-check="cta">Try the pay simulator</a>
+        <a class="btn" href="#buy">Where to buy</a>
+      </div>
+      <ul class="facts" aria-label="Key facts">
+        <li id="factLive">Status: not live yet</li>
+        <li>Launches on <span data-cfg="token.launchpad">Pons</span>, <span data-cfg="collection.chainName">Robinhood Chain</span></li>
+      </ul>
+    </div>
+    <div class="stage">
+      <span class="tag">What burning builds: a level 5 island</span>
+      <img class="tk-hcoin" src="/img/coin.png" width="96" height="96" alt="The $CRAB token logo: the orange crab on a gold coin">
+      <div class="frame"><canvas class="px" id="tkSea" role="img" aria-label="A top-level pixel island with a hermit crab walking on it"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<nav class="tk-jump" id="tkJump" aria-label="On this page"><div class="wrap"><a href="#loop">The loop</a><a href="#why">Why trade it</a><a href="#ladder">Burn ladder</a><a href="#sink">Supply</a><a href="#sim">Pay simulator</a><a href="#buy">Where to buy</a><a href="#tfaq">Questions</a></div></nav>
+
+<section class="band sea" id="loop" data-check="loop">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">The loop</span><h2>Trade. Fee. Pot. Pay. Burn. Again.</h2><p class="lede">Four things happen to the money, and one thing happens to the token. Follow the arrows.</p></div>
+    <div class="row tk-play"><button class="btn go sm" type="button" id="tkPlay">Play the loop</button><p class="tk-cap" id="tkCap" role="status">Press play and follow one coin round the ring.</p></div>
+    <div class="tk-loop" id="tkLoop"><i class="tk-coin" id="tkCoin" aria-hidden="true"></i>
+      <div class="tk-ring">
+        <div class="tk-node" data-step="a" style="grid-area:a"><span class="n">1</span><b>People trade <span data-cfg="token.symbol">$CRAB</span></b><span id="tkFee">A share of every trade is kept as a fee.</span></div>
+        <div class="tk-arr ab" data-step="ab" style="grid-area:ab"><span>each trade pays a fee</span></div>
+        <div class="tk-node" data-step="b" style="grid-area:b"><span class="n">2</span><b>The fee fills the pot</b><span id="tkSplit">A fixed share goes into the hourly pot. The rest is split between the team and the launchpad. The split is fixed in the contract and anyone can read it.</span></div>
+        <div class="tk-arr bc" data-step="bc" style="grid-area:bc"><span>once an hour</span></div>
+        <div class="tk-node" data-step="c" style="grid-area:c"><span class="n">3</span><b>The pot goes shopping</b><span>It buys <span data-cfg="payouts.assets">USDG (digital dollars)</span> on the open market.</span></div>
+        <div class="tk-arr cd" data-step="cd" style="grid-area:cd"><span>split by shell level</span></div>
+        <div class="tk-node" data-step="d" style="grid-area:d"><span class="n">4</span><b>Awake crabs get paid</b><span>The <span data-cfg="payouts.symbol">USDG</span> collects in each awake crab's tide pool, and waits there until the owner claims it. A sleeping crab gets nothing.</span></div>
+        <div class="tk-arr da" data-step="da" style="grid-area:da"><span>owners buy <span data-cfg="token.symbol">$CRAB</span> to wake and level up, and that is another trade</span></div>
+        <span class="tk-hub" aria-hidden="true" style="grid-area:mid">and round<br>it goes</span>
+      </div>
+      <div class="tk-burn" data-step="mid"><canvas class="px" id="tkBurn" width="32" height="32" role="img" aria-label="A crab at the top shell level"></canvas><b>5. The burn</b><span>Waking a crab, levelling its shell, buying an island item and raiding another pool all burn <span data-cfg="token.symbol">$CRAB</span>. Burned tokens are destroyed. Nobody can bring them back, not even us.</span></div>
+    </div>
+      </div>
+</section>
+
+<section class="band mint" id="why" data-check="why">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Why trade it</span><h2><span data-cfg="token.symbol">$CRAB</span> is for using, not for sitting on.</h2><p class="lede">Three reasons people will need it, all about use and none about price.</p></div>
+    <div class="grid g3 tk-swiperow" data-swipe tabindex="0" role="group" aria-label="Three uses of the token. On a phone, swipe sideways.">
+      <article class="card tk-yes"><span class="n">Use 1</span><h3>Every crab arrives asleep</h3><p>All <span data-cfg="collection.supply">2,222</span> crabs start asleep, and a sleeping crab earns nothing. The only way to wake one is to burn <span data-cfg="token.symbol">$CRAB</span>. A crab that is sold or moved goes back to sleep, and the new owner has to wake it again. <span id="tkKept">Whether the shell level survives a sale is not decided yet.</span> The <span data-cfg="token.symbol">$CRAB</span> you burned never comes back.</p></article>
+      <article class="card tk-yes"><span class="n">Use 2</span><h3><span data-cfg="token.levels">5</span> levels, each a bigger burn</h3><p>Each level gives a crab a bigger share of every hourly pot, and each one costs more <span data-cfg="token.symbol">$CRAB</span> than the last. Burned tokens do not go to the team and are not recycled. They are gone for good.</p></article>
+      <article class="card tk-yes"><span class="n">Use 3</span><h3>Every trade feeds the crabs</h3><p>Each buy and each sell pays the fee that fills the pot, whoever makes the trade. A busy market means a bigger tide. You can watch it happen on the chain, hour by hour.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="band rose" id="ladder" data-check="ladder">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">The burn ladder</span><h2>One wake. <span data-cfg="token.levels">5</span> levels. Every step is a burn.</h2><p class="lede">Each level gives the crab a bigger share of every hourly pot and a bigger island. The level shows on this site, on the crab's island.<span id="tkLadderTop"></span></p></div>
+    <div class="tk-ladder" id="tkLadder" data-swipe tabindex="0" role="group" aria-label="The burn ladder, asleep to level 5. On a phone, swipe sideways."></div>
+    <p class="small dim tk-swipe">Swipe sideways to climb the ladder.</p>
+    <p class="note" id="tkLadderNote"><b>Not set yet.</b> The exact burn for each step and the share each level gets will be set before launch and published here and in the docs. We will not guess them for you.</p>
+  </div>
+</section>
+
+<section class="band sand" id="sink" data-check="sink">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Where the supply goes</span><h2>There will only ever be <span data-cfg="token.supply">1,000,000,000</span>. Crabs eat them.</h2><p class="lede">No more <span data-cfg="token.symbol">$CRAB</span> can ever be made. Every wake and every level destroys some. Move the sliders to decide how far the crabs climb, and watch how much is gone for good.</p></div>
+    <div class="tk-sink" id="tkSink">
+      <form class="tk-inputs" id="tkSinkForm" autocomplete="off" onsubmit="return false">
+        <div class="row tk-presets" id="tkSinkPresets" role="group" aria-label="Quick settings"></div>
+        <div class="tk-sliders" id="tkSliders"></div>
+        <p class="small dim" id="tkSinkMsg" role="status"></p>
+      </form>
+      <div class="tk-out">
+        <div class="tk-big" aria-live="polite" aria-atomic="true"><span class="lab">Burned for good</span><b id="sBurn">0</b><span class="lab"><span id="sPct">0%</span> of all the <span data-cfg="token.symbol">$CRAB</span> that will ever exist</span></div>
+        <div class="tk-cells" id="tkCells" role="img" aria-label="One hundred squares. Each square is one percent of the supply."></div>
+        <p class="tk-fact" id="sinkFact"></p>
+        <p class="lab">Each square is 1% of the supply. Coral squares are burned. <span data-hunt="token"></span></p>
+      </div>
+    </div>
+    <p class="note" id="sinkNote"><b>What this is, and is not.</b> It is arithmetic on the burn ladder above. Island items and raid fees burn <span data-cfg="token.symbol">$CRAB</span> too, and neither is counted here. It is not a prediction of how many crabs will wake, and a smaller supply does not promise a higher price.</p>
+  </div>
+</section>
+
+<section class="band butter" id="sim" data-check="sim">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Pay simulator</span><h2>What could one crab get?</h2><p class="lede">Change any number and watch the pay move. This is an illustration, not a forecast. Nobody knows what the real trading volume will be.</p></div>
+    <div class="tk-sim">
+      <form class="tk-inputs" id="tkForm" autocomplete="off" onsubmit="return false">
+        <div class="field">
+          <label for="vol">Trading volume per day, in dollars <span class="tk-chip">example</span></label>
+          <input id="vol" type="number" inputmode="decimal" min="0" step="1000" value="1000000">
+          <input id="volRange" type="range" min="0" max="100" step="1" value="75" aria-label="Trading volume slider">
+          <div class="row tk-presets" id="tkPresets" role="group" aria-label="Example volumes"></div>
+        </div>
+        <div class="tk-two" hidden>  <!-- the fee and the pot share are fixed by the team and deliberately not discussed on the page: kept in the DOM so the maths and the shared links keep working -->
+          <div class="field"><label for="fee">Fee on each trade, % <span class="tk-chip" id="feeChip">example</span></label><input id="fee" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="2"></div>
+          <div class="field"><label for="pot">Share of the fee that fills the pot, % <span class="tk-chip" id="potChip">example</span></label><input id="pot" type="number" inputmode="decimal" min="0" max="100" step="1" value="50"></div>
+        </div>
+        <div class="field"><label for="fdv">What the whole supply is worth, in dollars <span class="tk-chip">example</span></label><input id="fdv" type="number" inputmode="decimal" min="0" step="100000" value="2000000"><p class="small dim" style="margin:0">Only used to price the burn, so the page can say how long a level takes to pay for itself.</p></div>
+        <fieldset class="tk-set">
+          <legend>Awake crabs at each level <span class="tk-chip">example</span></legend>
+          <div class="row tk-presets" id="tkAwakePresets" role="group" aria-label="Example crowds"></div>
+          <div class="tk-lvgrid" id="tkAwake"></div>
+          <p class="small dim" id="tkAwakeMsg" role="status"></p>
+        </fieldset>
+        <fieldset class="tk-set" id="tkItems">
+          <legend>Island items <span class="tk-chip">example</span></legend>
+          <div class="tk-slider"><label for="ibMine">Items bonus on your crab</label><output for="ibMine" id="ibMineOut">+0%</output><input id="ibMine" type="range" min="0" max="100" step="5" value="0"></div>
+          <div class="tk-slider"><label for="ibOthers">Average items bonus on the other crabs</label><output for="ibOthers" id="ibOthersOut">+0%</output><input id="ibOthers" type="range" min="0" max="100" step="5" value="0"></div>
+          <p class="small dim">Items add up to <span data-cfg="items.capPct">100</span>% to a crab's level weight. Your items make your slice bigger. Everyone else's items make it smaller. <a href="/shop/">Try the items on an island.</a></p>
+        </fieldset>
+        <details class="tk-adv">
+          <summary>Share weight of each level <span class="tk-chip" id="wChip">example</span></summary>
+          <div><p class="small dim">A crab with weight 3 gets three times the pay of a crab with weight 1. The real weights are set before launch.</p><div class="tk-lvgrid" id="tkWeights"></div></div>
+        </details>
+      </form>
+      <div class="tk-out">
+        <div class="tk-pick"><canvas class="px" id="tkCrab" width="32" height="32" role="img" aria-label="Your crab at the chosen level"></canvas><div><span class="lab">Your crab's level</span><div class="lv" id="tkLv" role="group" aria-label="Your crab's level" style="margin-top:8px"></div>
+          <label class="tk-legend" id="tkLegendWrap"><input type="checkbox" id="tkLegend"> Mine is one of the <span data-cfg="collection.legendaries">10</span> legends</label></div></div>
+        <div class="tk-big" aria-live="polite" aria-atomic="true"><span class="lab">One crab at this level earns about</span><b id="oDay">$0.00</b><span class="lab tk-week">a day, about <span id="oWeek">$0</span> a week</span><span class="lab">IF <span id="oVol">$0</span> of <span data-cfg="token.symbol">$CRAB</span> trades that day. Paid in <span data-cfg="payouts.symbol">USDG</span>.</span><span class="lab tk-warn">Earned, not kept. It waits in the crab's <a href="/raids/">tide pool</a>, and a raid can take <span data-cfg="raid.takePct">50</span>% of what is waiting.</span></div>
+        <dl class="tk-chain">
+          <dt hidden>Fees collected per day</dt><dd id="oFees" hidden>$0</dd>
+          <dt hidden>Into the pot per day</dt><dd id="oPotDay" hidden>$0</dd>
+          <dt>The pot each hour</dt><dd id="oPotHour">$0</dd>
+          <dt>Awake crabs sharing it</dt><dd id="oAwake">0</dd>
+          <dt>Legends among them</dt><dd id="oLegends">none</dd>
+          <dt>This level pays for itself in</dt><dd id="oBack">-</dd>
+        </dl>
+        <p class="lab" id="oBackNote"></p>
+        <div class="tk-bars" id="tkBars" role="img" aria-label="Pay per crab per day at each level"></div>
+        <button class="btn sm" type="button" id="tkZero">What if nobody trades?</button>
+        <div class="tk-share"><button class="btn sm" type="button" id="tkCopy">Copy link to this result</button><button class="btn sm" type="button" id="tkSave">Save as a picture</button></div>
+        <p class="small tk-msg" id="tkMsg" role="status"></p>
+      </div>
+    </div>
+    <p class="note"><b>Read this before you screenshot it.</b> Every number marked "example" is made up so the sliders have somewhere to start. Pay is handed out as <span data-cfg="payouts.assets">USDG (digital dollars)</span>, counted here as one dollar each, before swap costs. If volume is zero, pay is zero. If more crabs wake up, each one gets a smaller slice of the same pot. This is what a crab <b>earns</b>, not what it keeps: pay waits in the crab's tide pool until you claim it, and while it is there another crab can take <span data-cfg="raid.takePct">50</span>% of it. Once raiding is switched on a pool can be hit once every <span data-cfg="raid.cooldownHours">12</span> hours, so pay left sitting for a whole day can lose most of itself. <a href="/raids/">How raiding works.</a></p>
+  </div>
+</section>
+
+<section class="band" id="buy" data-check="buy">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Where to buy</span><h2 id="buyTitle"><span data-cfg="token.symbol">$CRAB</span> is not live.</h2></div>
+    <div class="tk-buy off" id="tkBuy">
+      <p class="tk-shout" id="buyShout">There is no <span data-cfg="token.symbol">$CRAB</span> token today. Any token using this name right now is fake.</p>
+      <p id="buyBody">When it launches it will launch on <span data-cfg="token.launchpad">Pons</span>, on <span data-cfg="collection.chainName">Robinhood Chain</span>. The contract address and the buy button will appear in this box, on this site, and nowhere else first. Do not trust an address from a reply, a DM or a chat group.</p>
+      <div class="row" id="buyRow"><a class="btn go" href="/list/" data-cta>Get on the list</a><a class="btn" href="/docs/">Read the docs</a></div>
+    </div>
+    <div class="head tk-ready" id="ready"><span class="eyebrow">Launch day checklist</span><h3 class="pix">Be ready, and do not get fooled.</h3></div>
+    <div class="grid g3">
+      <article class="card"><span class="n">Before</span><h3>What to have ready</h3><ul class="tk-ticks"><li>A wallet that works on <span data-cfg="collection.chainName">Robinhood Chain</span>.</li><li>Some ETH on that chain, for the buy and the network fee.</li><li>This page saved as a bookmark, so you never have to search for it.</li></ul></article>
+      <article class="card"><span class="n">On the day</span><h3>How to spot the real one</h3><ul class="tk-ticks"><li>The address shows up in the box above. Nowhere else first.</li><li>It launches on <span data-cfg="token.launchpad">Pons</span>, on <span data-cfg="collection.chainName">Robinhood Chain</span>. Any other launchpad or chain is a fake.</li><li>Check the address letter by letter against this page before you sign.</li></ul></article>
+      <article class="card"><span class="n">Always</span><h3>What we will never do</h3><ul class="tk-ticks"><li>We never send you the address in a DM, a reply or a chat group.</li><li>We never ask for your seed phrase or for a "wallet check".</li><li id="tkNoPresale" hidden>There is no presale and no private round. The team makes one opening buy on the open market when the token launches, like any other buyer. <span id="tkFirstBuy">Its size is published before launch.</span></li>
+<li>We never ask you to send ETH to a person. You buy on <span data-cfg="token.launchpad">Pons</span>, from your own wallet.</li></ul></article>
+    </div>
+    <p class="note" id="raceNote"><b>The race to wake.</b> The pot fills from the very first trade, even while every crab is still asleep, and it carries over from hour to hour. So the first crabs to wake split the first tide between them.</p>
+    <p class="note" id="readyNote" hidden>The address appears on this page the minute the token is live. Until then the box above stays yellow, and anything for sale under this name is fake.</p>
+  </div>
+</section>
+
+<section class="band lilac" id="tfaq" data-check="faq">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Questions</span><h2>Short answers about <span data-cfg="token.symbol">$CRAB</span>.</h2></div>
+    <div class="faq">
+      <details><summary><span>Do I get paid for holding <span data-cfg="token.symbol">$CRAB</span>?</span></summary><div><p>No. Only awake crabs get paid. The token is what you burn to wake a crab and to level it up.</p></div></details>
+      <details><summary><span>Do I need <span data-cfg="token.symbol">$CRAB</span> to mint a crab?</span></summary><div><p>No. The mint is <span data-cfg="collection.mintPrice">free</span>. You need <span data-cfg="token.symbol">$CRAB</span> afterwards, to wake the crab.</p></div></details>
+      <details><summary><span>Do I need a crab to trade <span data-cfg="token.symbol">$CRAB</span>?</span></summary><div><p>No. Anyone can trade it once it is live. Every trade feeds the pot, whoever makes it.</p></div></details>
+      <details><summary><span>Where does the rest of the fee go?</span></summary><div><p id="tkRest">To the team and to the launchpad. The split is fixed in the contract and anyone can read it.</p></div></details>
+      <details><summary><span>What happens to burned tokens?</span></summary><div><p>They are destroyed. They do not go to the team, to a treasury or back into the pot. The supply gets smaller by that amount, for good.</p></div></details>
+      <details><summary><span>What if nobody trades?</span></summary><div><p>Then the pot is empty and that hour pays nothing. Pay rises and falls with trading volume, and it can be zero.</p></div></details>
+      <details><summary><span>What are island items?</span></summary><div><p>A second use for <span data-cfg="token.symbol">$CRAB</span>. You burn it to put an item on your crab's island, for good, and the item gives the crab a bigger share of every hourly pot. The whole price is burned. Items give your crab a bigger slice. They do not make the pot bigger. <a href="/shop/">See the island shop.</a></p></div></details>
+      <details><summary><span>Is my pay safe once my crab earns it?</span></summary><div><p>Not until you claim it. Pay collects in your crab's tide pool. While it waits there, any other awake crab can raid the pool and take <span data-cfg="raid.takePct">50</span>% of what is in it, once every <span data-cfg="raid.cooldownHours">12</span> hours. Claiming empties the pool, so claiming is your defence (only the ten crabs holding a sea fort cannot be raided at all), and once it is claimed it is in your own wallet and yours for good. Selling the crab does not hand the pool over either: it settles to whoever owned it at the time. A raid costs a fixed <span data-cfg="raid.fee">10,000</span> <span data-cfg="token.symbol">$CRAB</span>, burned, so small pools are not worth raiding. <a href="/raids/">Try the raid toy</a>, and <a href="/tides/#raids">every raid that happens is listed here</a>.</p></div></details>
+      <details><summary><span>What is <span data-cfg="payouts.symbol">USDG</span>, and is it safe?</span></summary><div><p>It is what the crabs get paid in: a digital dollar. <span data-cfg="payouts.symbol">USDG</span> is someone else's dollar. It is a stablecoin run by a company, not by us. It is built to hold one dollar, but no stablecoin is free of risk.</p></div></details>
+      <details><summary><span>Can the pot stop filling?</span></summary><div><p>Yes, in two ways. If nobody trades, there is no fee. And the token launches on <span data-cfg="token.launchpad">Pons</span>, whose owner has some powers over where a creator's fee is sent. The <a href="/docs/#risks">risks section of the docs</a> explains this in full.</p></div></details>
+      <details><summary><span>Will the price go up because of the burns?</span></summary><div><p>Nobody can promise that, and we do not. Burns make the supply smaller. The price is set by buyers and sellers, and it can fall.</p><p><span data-hunt="token2"></span></p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="band sky" data-check="ctaband">
+  <div class="wrap cta">
+    <div class="head" style="margin:0"><h2>The crabs come first.</h2><p class="lede">The list opens before the mint, and the mint comes before the token. Get on the list and you will hear about each step here.</p></div>
+    <a class="btn go" href="/list/" data-cta>Get on the list</a>
+  </div>
+</section>
+
+</main>
+<footer id="foot"></footer>
+<script src="/config.js?v=1790445814"></script>
+<script src="/js/art/engine.js?v=1790445814"></script>
+<script src="/js/art/crab.js?v=1790445814"></script>
+<script src="/js/art/world.js?v=1790445814"></script>
+<script src="/js/ui.js?v=1790445814"></script>
+<script src="/js/token.js?v=1790445814"></script>
+<script src="/js/hunt.js?v=1790445814"></script>
+</body>
+</html>

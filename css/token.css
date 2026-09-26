@@ -1,0 +1,255 @@
+/* /token/ page only. Everything shared lives in site.css; classes here start with tk-. */
+.tk-hero .stage .tag{max-width:calc(100% - 100px)}
+.tk-chip{display:inline-block;font:400 10.5px/1 var(--pix);letter-spacing:.04em;text-transform:uppercase;border:2px solid var(--ink);background:var(--card);padding:4px 6px;margin-left:6px;vertical-align:middle;white-space:nowrap}
+.tk-chip.real{background:var(--mint)}
+
+/* the loop: four money steps round a TIGHT ring, the burn as a wide banner under it.
+   The centre column stays narrow on purpose: when the burn card lived in the middle it stretched the
+   middle row and blew the ring apart, leaving big empty corners. */
+.tk-loop{display:grid;gap:0}
+.tk-ring{display:grid;grid-template-columns:minmax(0,1fr) minmax(132px,172px) minmax(0,1fr);grid-template-areas:"a ab b" "da mid bc" "d cd c";align-items:stretch}
+.tk-node,.tk-burn{border:var(--bd);box-shadow:var(--sh-s);padding:18px;display:grid;gap:8px;align-content:center;color:var(--ink);background:var(--card)}
+.tk-node b,.tk-burn b{font:400 15px/1.3 var(--pix)}
+.tk-node span,.tk-burn span{font-size:15px;color:var(--ink2)}
+.tk-node .n{font:400 12.5px/1 var(--pix);background:var(--butter);border:2px solid var(--ink);padding:5px 7px;justify-self:start;color:var(--ink)}
+.tk-hub{align-self:center;justify-self:center;text-align:center;font:400 10.5px/1.5 var(--pix);letter-spacing:.06em;color:#a9c4d8}
+
+/* the burn: a wide banner, crab on the left, words beside it. Never a tall narrow column of centred text. */
+.tk-burn{background:var(--coral);grid-template-columns:auto minmax(0,1fr);gap:8px 20px;align-content:center;padding:20px 22px;margin-top:clamp(14px,2vw,22px)}
+.tk-burn b,.tk-burn span{color:var(--ink)}
+.tk-burn b{font-size:16px;align-self:end}
+.tk-burn span{align-self:start;max-width:64em}
+.tk-burn canvas{width:104px;height:104px;border:2px solid var(--ink);background:var(--card);grid-row:1/3;align-self:center}
+
+/* every connector is the same shape: the arrowhead, then its caption under it */
+.tk-arr{display:flex;flex-direction:column-reverse;align-items:center;justify-content:center;gap:8px;padding:16px 12px;font:400 11.5px/1.4 var(--pix);color:#cfe3f1;text-align:center}
+.tk-arr::after{font-size:22px;color:var(--butter);flex:none;line-height:1}
+.tk-arr.ab::after{content:"\25B6"}
+.tk-arr.cd::after{content:"\25C0"}
+.tk-arr.bc::after{content:"\25BC"}
+.tk-arr.da::after{content:"\25B2"}
+.tk-arr.da span,.tk-arr.bc span{max-width:22em}
+@media (prefers-reduced-motion:no-preference){
+  .tk-arr::after{animation:tk-blink 3.2s steps(1) infinite}
+  .tk-arr.bc::after{animation-delay:.8s}.tk-arr.cd::after{animation-delay:1.6s}.tk-arr.da::after{animation-delay:2.4s}
+}
+@keyframes tk-blink{0%{color:#fff;transform:scale(1.35)}25%{color:var(--butter);transform:none}}
+@media (max-width:860px){
+  .tk-ring{grid-template-columns:1fr;grid-template-areas:"a" "ab" "b" "bc" "c" "cd" "d" "da"}
+  .tk-hub{display:none}
+  .tk-arr.ab::after,.tk-arr.cd::after,.tk-arr.da::after,.tk-arr.bc::after{content:"\25BC"}
+  .tk-burn{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .tk-burn canvas{grid-row:auto}
+  .tk-burn b,.tk-burn span{align-self:auto}
+}
+
+/* for / think twice */
+.card.tk-yes .n{justify-self:start;border:2px solid var(--ink);padding:5px 7px;color:var(--ink)}
+.card.tk-yes .n{background:var(--mint)}
+
+/* burn ladder */
+.tk-ladder{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.tk-ladder figure{margin:0;background:var(--card);border:var(--bd);box-shadow:var(--sh-s);padding:8px;display:grid;gap:8px;align-content:start}
+.tk-ladder canvas{width:100%;border:2px solid var(--ink)}
+.tk-ladder figcaption{display:grid;gap:4px}
+.tk-ladder figcaption b{font:400 13px/1.2 var(--pix)}
+.tk-ladder figcaption span{font-size:14px;line-height:1.35;color:var(--ink2)}
+.tk-ladder figcaption .v{font-weight:800;color:var(--ink)}
+@media (max-width:980px){.tk-ladder{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.tk-ladder{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* simulator */
+.tk-sim{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,32px);align-items:start}
+@media (max-width:900px){.tk-sim{grid-template-columns:1fr}}
+.tk-inputs{display:grid;gap:20px;background:var(--card);border:var(--bd);box-shadow:var(--sh-s);padding:18px;min-width:0}
+.tk-inputs .field label,.tk-set legend,.tk-adv summary{font:400 13px/1.5 var(--pix)}
+.tk-inputs input[type=range]{width:100%;accent-color:var(--coral);margin:4px 0 0;padding:0;border:0;box-shadow:none;background:none}
+.tk-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:end}
+@media (max-width:520px){.tk-two{grid-template-columns:1fr}}
+.tk-presets .btn[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tk-set{border:0;margin:0;padding:0;min-width:0;display:grid;gap:10px}
+.tk-set legend{padding:0;margin-bottom:10px}
+.tk-lvgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.tk-lvgrid label{display:grid;gap:4px;font:400 11.5px/1 var(--pix);color:var(--ink2)}
+.tk-lvgrid input{font:700 16px/1.2 var(--body);padding:10px 6px;border:2px solid var(--ink);background:var(--card);color:var(--ink);width:100%;min-width:0;text-align:center}
+@media (max-width:420px){.tk-lvgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tk-adv summary{cursor:pointer}
+.tk-adv>div{display:grid;gap:10px;padding-top:10px}
+.tk-out{background:var(--ink);color:var(--paper);border:var(--bd);box-shadow:6px 6px 0 var(--coral);padding:18px;display:grid;gap:18px;position:sticky;top:84px;min-width:0}
+@media (max-width:900px){.tk-out{position:static}}
+.tk-out .lab{font:400 12.5px/1.4 var(--pix);color:#a9c4d8}
+.tk-pick{display:grid;grid-template-columns:84px minmax(0,1fr);gap:14px;align-items:center}
+.tk-pick canvas{width:84px;height:84px;border:2px solid var(--paper)}
+.tk-out .lv{margin-top:0}
+.tk-out .lv button{border-color:var(--paper);background:transparent;color:var(--paper)}
+.tk-out .lv button[aria-pressed="true"]{background:var(--butter);color:var(--ink)}
+.tk-big{display:grid;gap:6px}
+.tk-big b{font:400 clamp(30px,5vw,46px)/1.05 var(--pix);color:var(--butter);overflow-wrap:anywhere}
+.tk-big #oDay{color:#fff}
+.tk-chain{margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;font-size:15.5px;border-top:2px solid #35506a;padding-top:14px}
+.tk-chain dt{color:#a9c4d8}
+.tk-chain dd{margin:0;font-weight:800;text-align:right}
+.tk-bars{display:grid;gap:6px}
+.tk-bar{display:grid;grid-template-columns:54px minmax(0,1fr) auto;gap:10px;align-items:center;font:400 12px/1 var(--pix)}
+.tk-bar i{display:block;height:14px;background:#35506a;min-width:2px}
+.tk-bar.on i{background:var(--butter)}
+.tk-bar em{font:800 14px/1 var(--body);font-style:normal}
+.tk-out .btn{justify-self:start}
+
+/* where to buy */
+.tk-buy{border:var(--bd);box-shadow:var(--sh);padding:clamp(18px,3vw,30px);display:grid;gap:14px;max-width:52em;background:var(--card)}
+.tk-buy.off{background:repeating-linear-gradient(135deg,var(--butter) 0 22px,#ffd95c 22px 44px)}
+.tk-buy.off>*{background:var(--card);border:2px solid var(--ink);padding:12px 14px}
+.tk-buy.off>.row{background:none;border:0;padding:0}
+.tk-shout{font:400 clamp(17px,2.4vw,22px)/1.35 var(--pix)}
+.tk-addr{font:700 15px/1.4 ui-monospace,Menlo,monospace;overflow-wrap:anywhere;border:2px solid var(--ink);background:var(--paper);padding:10px 12px}
+
+/* anchors land below the sticky header */
+#loop,#why,#ladder,#sink,#sim,#buy,#tfaq{scroll-margin-top:126px}
+
+/* launch day checklist + share */
+.tk-ready{margin-top:clamp(32px,5vw,56px);margin-bottom:18px;scroll-margin-top:126px}
+.tk-ready h3{font-size:clamp(19px,2.6vw,26px);line-height:1.2}
+.tk-ticks{margin:0;padding:0;list-style:none;display:grid;gap:8px;color:var(--ink2);font-size:16px}
+.tk-ticks li{padding-left:22px;position:relative}
+.tk-ticks li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;background:var(--coral);border:2px solid var(--ink)}
+.tk-msg{color:#a9c4d8;min-height:1.4em}
+
+/* the loop, playing */
+/* This used to be a third sticky bar under the header and the jump nav: 175px of a 900px viewport gone for
+   the whole page. It only matters while you are looking at the ring, which is right below it, so it scrolls. */
+.tk-play{margin-bottom:18px;padding:2px 0 10px}
+.tk-cap{font:400 13px/1.5 var(--pix);color:var(--butter);min-height:3em;flex:1 1 260px;max-width:46em}
+.tk-loop{position:relative}
+.tk-node,.tk-burn,.tk-arr{transition:transform .15s,box-shadow .15s,opacity .15s}
+.tk-loop.playing [data-step]{opacity:.45}
+.tk-loop.playing [data-step].lit{opacity:1}
+.tk-loop.playing .tk-node.lit,.tk-loop.playing .tk-burn.lit{box-shadow:0 0 0 4px var(--butter),8px 8px 0 var(--ink);transform:translate(-2px,-2px)}
+.tk-loop.playing .tk-arr::after{animation:none}
+.tk-coin{position:absolute;left:0;top:0;width:40px;height:40px;margin:-20px 0 0 -20px;background:url(/img/coin.png) center/contain no-repeat;image-rendering:pixelated;z-index:5;opacity:0;pointer-events:none;filter:drop-shadow(3px 3px 0 var(--ink));transition:transform .65s cubic-bezier(.5,0,.3,1),opacity .2s,filter .3s}
+.tk-coin.on{opacity:1}
+.tk-coin.burnt{opacity:0;filter:drop-shadow(3px 3px 0 var(--ink)) sepia(1) saturate(6) hue-rotate(-35deg);transition:transform .65s cubic-bezier(.5,0,.3,1),opacity .6s .5s,filter .3s .3s}
+@media (prefers-reduced-motion:reduce){.tk-coin{display:none}.tk-node,.tk-burn,.tk-arr{transition:none}}
+
+/* supply sink */
+.tk-sink{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,32px);align-items:start}
+@media (max-width:900px){.tk-sink{grid-template-columns:1fr}}
+.tk-sink .tk-out{position:static}
+.tk-sliders{display:grid;gap:14px}
+.tk-slider{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:center}
+.tk-slider label{font:400 12.5px/1.4 var(--pix)}
+.tk-slider output{font:800 16px/1 var(--body)}
+.tk-slider input{grid-column:1/-1}
+.tk-slider small{grid-column:1/-1;font-size:13.5px;color:var(--ink2)}
+.tk-cells{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:3px}
+.tk-cells i{display:block;aspect-ratio:1;background:#35506a}
+.tk-cells i.b{background:var(--coral)}
+.tk-cells i.h{background:linear-gradient(90deg,var(--coral) 50%,#35506a 50%)}
+.tk-inputs input[readonly]{background:var(--paper);color:var(--ink2)}
+
+/* jump strip: one line of section links under the header, scrolls sideways on phones */
+.tk-jump{position:sticky;top:67px;z-index:20;background:var(--ink);border-bottom:var(--bd)}
+.tk-jump .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-block:6px}
+.tk-jump .wrap::-webkit-scrollbar{display:none}
+.tk-jump a{flex:none;font:400 12px/1 var(--pix);color:#d9e4ec;text-decoration:none;padding:9px 10px;border:2px solid transparent;white-space:nowrap}
+.tk-jump a:hover{border-color:#d9e4ec}
+.tk-jump a[aria-current="true"]{background:var(--butter);color:var(--ink);border-color:var(--butter)}
+.tk-jump a:focus-visible{outline-offset:-3px}
+.tk-jump+.band{border-top:0}
+
+/* phones: the page is long, so everything that stacks gets tighter */
+@media (max-width:860px){
+  .tk-node,.tk-burn{padding:14px;gap:4px}
+  .tk-arr{gap:5px;padding:12px;font-size:11.5px}
+  .tk-arr::after{font-size:18px}
+  .tk-burn canvas{width:72px;height:72px}
+}
+@media (max-width:620px){
+  #why .card{padding:14px;gap:6px}
+  #why .grid{gap:10px}
+  .tk-hero .facts{margin-top:16px}
+}
+
+/* life: a coin over the hero island, squares that pop, numbers that blink when they change. All off under reduced motion. */
+.tk-hcoin{position:absolute;right:10px;top:-40px;z-index:3;width:96px;height:96px;image-rendering:pixelated;image-rendering:crisp-edges;filter:drop-shadow(4px 4px 0 var(--ink))}
+.tk-ladder figure{transition:transform .12s,box-shadow .12s}
+.tk-ladder figure:hover{transform:translate(-2px,-3px);box-shadow:6px 7px 0 var(--ink)}
+@media (prefers-reduced-motion:no-preference){
+  .tk-hcoin{animation:tk-bob 3.4s ease-in-out infinite,tk-flip 6.8s steps(1) infinite}
+  .tk-cells i.b,.tk-cells i.h{animation:tk-pop .28s ease-out}
+  .tk-flash{animation:tk-flash .35s ease-out}
+  .tk-bar i{transition:width .25s ease-out}
+}
+@keyframes tk-bob{50%{translate:0 8px}}
+@keyframes tk-flip{0%,100%{transform:scaleX(1)}47%{transform:scaleX(.15)}50%{transform:scaleX(1)}}
+@keyframes tk-pop{0%{transform:scale(.2)}70%{transform:scale(1.35)}100%{transform:scale(1)}}
+@keyframes tk-flash{0%{color:#fff;transform:scale(1.06)}100%{transform:none}}
+.tk-big b{display:inline-block;transform-origin:left center}
+@media (max-width:900px){.tk-hcoin{right:6px;top:-26px;width:60px;height:60px}}
+
+/* the hero is fully our own: it does not use the shared .hero class, so changes to the home hero never reach it */
+.tk-hero{padding-block:clamp(28px,5vw,64px) clamp(40px,6vw,72px);background:var(--paper)}
+.tk-hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.18fr);gap:clamp(24px,4vw,56px);align-items:center}
+.tk-hero h1{font:400 clamp(30px,4.6vw,54px)/1.12 var(--pix);margin:14px 0 18px}
+.tk-hero h1 em{font-style:normal;background:var(--butter);box-shadow:0 0 0 4px var(--butter)}
+.tk-hero .lede{max-width:32ch}
+.tk-hero .row{margin-top:26px}
+.tk-hero .facts{display:flex}
+.tk-hero .stage .tag{font-size:11.5px;white-space:normal;line-height:1.3}
+@media (max-width:900px){.tk-hero .wrap{grid-template-columns:1fr}}
+
+/* phones: the ladder is one sideways swipe row (one card and a peek of the next), the checklist is one card */
+@media (max-width:620px){
+  .tk-ladder{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 6px 10px 2px;margin-right:calc(var(--gut) * -1);scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+  .tk-ladder figure{scroll-snap-align:start}
+  .tk-ladder figure:last-child{margin-right:var(--gut)}
+  #buy .grid.g3{gap:0;border:var(--bd);box-shadow:var(--sh-s);background:var(--card)}
+  #buy .grid.g3 .card{border:0;box-shadow:none;padding:14px 16px;gap:6px}
+  #buy .grid.g3 .card+.card{border-top:2px solid var(--ink)}
+  .tk-ticks{font-size:15px;gap:5px}
+}
+.tk-swipe{display:none;margin-top:6px}
+@media (max-width:620px){.tk-swipe{display:block}}
+@media (max-width:620px){
+  main>section.band{padding-block:36px}
+  .tk-slider small{display:none}
+  .tk-sliders{gap:10px}
+  .tk-inputs{gap:16px;padding:14px}
+  .tk-out{gap:14px;padding:14px}
+  .tk-loop .tk-node span:not(.n){font-size:14.5px}
+}
+@media (max-width:620px){
+  #why .tk-swiperow{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:80%;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 6px 10px 2px;margin-right:calc(var(--gut) * -1);scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+  #why .tk-swiperow .card{scroll-snap-align:start}
+  #why .tk-swiperow .card:last-child{margin-right:var(--gut)}
+}
+
+/* even rows everywhere (owner's rule): every group of cards or buttons is a grid whose column count divides its item count */
+@media (min-width:761px){#why .grid.g3,#buy .grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:621px) and (max-width:760px){#why .grid.g3,#buy .grid.g3{grid-template-columns:1fr}}
+.tk-presets,.tk-share{display:grid;gap:10px;align-items:stretch}
+.tk-presets .btn{white-space:normal;text-align:center;line-height:1.3}
+#tkPresets,#tkAwakePresets{grid-template-columns:repeat(3,minmax(0,1fr))}
+#tkSinkPresets{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:520px){#tkAwakePresets{grid-template-columns:1fr}}
+.tk-share{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tk-share .btn{white-space:normal;text-align:center;line-height:1.3}
+@media (max-width:420px){.tk-lvgrid{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.tk-lvgrid input{padding:9px 2px;font-size:14.5px}.tk-lvgrid label{font-size:10.5px}}
+
+/* the weekly figure sits right under the daily one and is the second thing read */
+.tk-out .tk-week{font-size:15px;color:#fff}
+.tk-out .tk-week span{color:var(--butter)}
+
+.tk-fact{font:700 15.5px/1.45 var(--body);color:var(--butter)}
+.tk-fact:empty{display:none}
+.tk-out .tk-warn{color:var(--sky)}
+.tk-out .tk-warn a{color:inherit}
+
+/* Once the address is on the page, the warning above it is the most important line in the section: this is the
+   moment convincing fakes appear. It changes job rather than disappearing, so it must not also get quieter. */
+.tk-buy:not(.off) .tk-shout{background:var(--ink);color:var(--butter);border:var(--bd);box-shadow:var(--sh-s);padding:14px 16px}
+.tk-legend{display:flex;gap:8px;align-items:center;margin-top:10px;font:400 11.5px/1.3 var(--pix);color:#a9c4d8;cursor:pointer}
+.tk-legend input{accent-color:var(--butter);width:16px;height:16px;margin:0}
+
+/* on a phone a 16px-tall range input is a fiddly drag target; the native track stays the same, only the hit box grows */
+#sim input[type=range],#sink input[type=range]{min-height:30px}

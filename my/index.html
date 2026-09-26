@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My crabs | Crab Market</title>
+<meta name="description" content="Connect your wallet to see your crabs, wake them, level them up and claim their tide pools.">
+<link rel="canonical" href="https://crabmarket.io/my/">
+<meta property="og:url" content="https://crabmarket.io/my/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="My crabs | Crab Market">
+<meta property="og:description" content="Connect your wallet to see your crabs, wake them, level them up and claim their tide pools.">
+<meta property="og:image" content="https://crabmarket.io/img/og-sea.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffaf0">
+<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css?v=1790445814">
+</head>
+<body>
+<header id="top"></header>
+<main>
+<section class="band" id="mine" data-check="mine">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">My crabs</span><h1 class="pix" style="font-size:clamp(28px,4.4vw,46px);line-height:1.1">Your crabs, your tide pools.</h1><p class="lede" id="myState">Connect a wallet that holds crabs to wake them, level them up and claim their tide pools.</p></div>
+    <div class="row my-top">
+      <button class="btn go" id="connect" type="button">Connect wallet</button>
+      <div class="my-who" id="who" hidden><span class="tag" id="whoChain">Robinhood Chain</span><b id="whoAddr" class="mono"></b><button class="btn sm" id="switch" type="button" hidden>Switch network</button><button class="btn sm" id="refresh" type="button">Refresh</button></div>
+      <p id="noWallet" hidden>No wallet found in this browser. Install MetaMask, or open this page inside your wallet's browser.</p>
+      <span class="tag" id="myLoading" hidden>Reading the chain…</span>
+    </div>
+    <dl class="my-bar" id="myBar" hidden>
+      <div><dt>Crabs</dt><dd id="sCrabs">0</dd></div>
+      <div><dt>Awake</dt><dd id="sAwake">0</dd></div>
+      <div><dt>In the pools</dt><dd id="sPool">$0.00</dd></div>
+      <div><dt><span data-cfg="token.symbol">$CRAB</span> in the wallet</dt><dd id="sBal">—</dd></div>
+      <div id="sCreditRow" hidden><dt>Banked pay</dt><dd id="sCredit">$0.00</dd></div>
+      <div class="my-barbtn"><button class="btn sm gold" id="claimAll" type="button" hidden>Claim every pool</button><button class="btn sm" id="withdraw" type="button" hidden>Withdraw banked pay</button></div>
+    </dl>
+    <p id="myEmpty" hidden>This wallet holds no crab. Crabs trade on <a href="https://opensea.io/collection/crabmarketio" target="_blank" rel="noopener">OpenSea</a>.</p>
+    <div class="my-grid" id="myGrid" hidden></div>
+    <ul class="my-log" id="myLog" hidden aria-live="polite"></ul>
+  </div>
+</section>
+<section class="band sky" id="how" data-check="how">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">How it works</span><h2 class="pix">Three things you can do here.</h2></div>
+    <div class="grid g3">
+      <article class="card"><span class="n">Wake</span><h3>Burn <span data-cfg="token.wakeCost">30,000</span> <span data-cfg="token.symbol">$CRAB</span></h3><p>An asleep crab earns nothing. Waking it burns the tokens for good and it earns from the next tide. The first wake also sets level 1. A crab that was sold goes back to sleep, keeps its level, and needs waking again.</p></article>
+      <article class="card"><span class="n">Level up</span><h3>Climb the ladder</h3><p>Levels 2 to 5 burn more and earn a bigger share of every hourly pot. The ladder is cumulative: a climb costs the difference, and levels are permanent.</p></article>
+      <article class="card"><span class="n">Claim</span><h3>Take your tide pools</h3><p>Pay collects in each crab's tide pool until you claim it. Claim one crab, or every pool in one go. If the pay token cannot move at that moment it is banked for you, and a withdraw button appears.</p></article>
+    </div>
+    <p class="lede my-note">Each burn button shows the amount it burns. A burn asks the wallet twice: first an approval for exactly that amount of <span data-cfg="token.symbol">$CRAB</span>, then the action itself. This page never asks for anything else. Every action is rehearsed against the chain before it is sent, so a move that would fail is refused for free.</p>
+  </div>
+</section>
+</main>
+<footer id="foot"></footer>
+<script src="/config.js?v=1790445814"></script>
+<script src="/js/art/engine.js?v=1790445814"></script>
+<script src="/js/art/crab.js?v=1790445814"></script>
+<script src="/js/art/world.js?v=1790445814"></script>
+<script src="/js/art/decode.js?v=1790445814"></script>
+<script src="/js/ui.js?v=1790445814"></script>
+<script src="/js/my.js?v=1790445814"></script>
+<script src="/js/hunt.js?v=1790445814"></script>
+</body>
+</html>

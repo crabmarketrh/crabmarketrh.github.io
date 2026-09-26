@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The sea | Crab Market</title>
+<meta name="description" content="Explore the sea of crab islands. Drag to move around, click an island to meet the crab that lives there.">
+<link rel="canonical" href="https://crabmarket.io/sea/">
+<meta property="og:url" content="https://crabmarket.io/sea/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The sea | Crab Market">
+<meta property="og:description" content="Explore the sea of crab islands. Drag to move around, click an island to meet the crab that lives there.">
+<meta property="og:image" content="https://crabmarket.io/img/og-sea.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffaf0">
+<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css?v=1790445814">
+</head>
+<body>
+<header id="top"></header>
+<main>
+<section class="band sea seapage">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">The sea</span><h1 class="pix" style="font-size:clamp(28px,4.4vw,46px);line-height:1.1">Every crab gets an island.</h1><p class="lede">Drag the sea to look around. Click an island to meet who lives there. A bare beach with a snoozing crab is still asleep. The big islands burned the most <span data-cfg="token.symbol">$CRAB</span>.</p></div>
+    <form class="seafind" id="find" autocomplete="off"><div class="field"><label for="who">Put your own island in the sea</label><input id="who" type="text" maxlength="64" placeholder="your wallet, or any name" spellcheck="false"></div><button class="btn go" type="submit">Find my island</button></form>
+    <div class="seawrap">
+      <div class="seaview" id="view" tabindex="0" role="application" aria-label="A sea of crab islands. Use the arrow keys to move around."><canvas class="px" id="sea" role="img" aria-label="A dark blue sea dotted with small sandy islands. Bigger islands have huts, docks and lighthouses."></canvas>
+        <div class="seahud"><button class="btn sm" type="button" id="zin" aria-label="Zoom in">+</button><button class="btn sm" type="button" id="zout" aria-label="Zoom out">-</button><button class="btn sm" type="button" id="shuffle">New sea</button></div>
+        <span class="tag" id="demoTag">A sample sea. After the mint, this shows the real one.</span>
+      </div>
+      <div class="seacard card" id="card" aria-live="polite">
+        <canvas class="px" id="nft" width="32" height="32" role="img" aria-label="The crab on this island"></canvas>
+        <span class="mine" id="cMine" hidden>Your island</span><h2 class="pix" id="cName" style="font-size:18px;margin:0">Pick an island</h2>
+        <p id="cLine" class="small">Click any island in the sea.</p>
+        <dl class="traits" id="cTraits"></dl>
+        <div class="row"><a class="btn go sm" href="/list/" data-cta>Get on the list</a><a class="btn sm" href="/token/#ladder">How levels work</a></div>
+      </div>
+    </div>
+    <p class="small" style="color:#d6e6f2;margin:14px 0 0">After the mint this page shows the real sea: every crab, its real level, and what the last tide left on its beach. <span data-hunt="sea"></span></p>
+  </div>
+</section>
+</main>
+<footer id="foot"></footer>
+<script src="/config.js?v=1790445814"></script>
+<script src="/js/art/engine.js?v=1790445814"></script>
+<script src="/js/art/crab.js?v=1790445814"></script>
+<script src="/js/art/world.js?v=1790445814"></script>
+<script src="/js/art/decode.js?v=1790445814"></script>
+<script src="/js/ui.js?v=1790445814"></script>
+<script src="/js/sea.js?v=1790445814"></script>
+<script src="/js/hunt.js?v=1790445814"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get on the list | Crab Market</title>
+<meta name="description" content="The list mints first. Post your card on X and your wallet is on it.">
+<link rel="canonical" href="https://crabmarket.io/list/">
+<meta property="og:url" content="https://crabmarket.io/list/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Get on the list | Crab Market">
+<meta property="og:description" content="The list mints first. Post your card on X and your wallet is on it.">
+<meta property="og:image" content="https://crabmarket.io/img/og-list.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffaf0">
+<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css?v=1790445814">
+</head>
+<body>
+<header id="top"></header>
+<main>
+<section class="band sky" style="padding-block:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">The list</span><span class="pix small" id="listCount" hidden></span><h1 class="pix" style="font-size:clamp(28px,4.4vw,46px);line-height:1.1">Get on the list.</h1><p class="lede">The list mints first. You get on it by posting your card on X from your own account. No sign-up, no wallet connection, no fees.</p></div>
+    <p class="banner" id="state" role="status" data-default="1">The list is not open yet. It opens on <a href="https://x.com/crabmarketio" rel="noopener" target="_blank">our X account</a> first. You can already make your card below and see what you will post.</p>
+    <ol class="steps" id="steps" aria-label="Steps" style="margin-top:22px"><li>Your wallet</li><li>Your X handle</li><li>Post the card</li><li>Paste the link</li></ol>
+    <div class="meet" style="margin-top:22px">
+      <form id="form" style="display:grid;gap:16px" autocomplete="off">
+        <div class="field"><label for="wallet">Your wallet address (the one that will mint)</label><input id="wallet" class="addr" type="text" placeholder="0x…" spellcheck="false" inputmode="latin" maxlength="42"><p class="small dim" style="margin:0">Not an exchange address. It must be a wallet you control on <span data-cfg="collection.chainName">Robinhood Chain</span>.</p><p class="echo" id="echo" hidden></p></div>
+        <div class="field"><label for="handle">Your X handle</label><input id="handle" type="text" placeholder="@you" spellcheck="false" maxlength="16"></div>
+        <div class="row"><button class="btn go" type="submit" id="make">Make my card</button></div>
+        <p class="small dim" id="msg" role="status">We never ask you to connect a wallet or sign anything to get on the list. An address is enough.</p>
+        <div id="after" hidden style="display:grid;gap:16px">
+          <div class="posttext"><span class="eyebrow">Step 3: post it, in this order</span>
+            <ol class="poststeps">
+              <li><b>Copy your card</b>, open a new post on X, and paste it. <span class="dim">Your post has no picture without it, and the card is the whole point.</span><div class="row" style="margin-top:8px"><button class="btn go sm" type="button" id="sharecard" hidden>Send the card to X</button><button class="btn go sm" type="button" id="copycard">Copy the card</button><button class="btn sm" type="button" id="save" hidden>Save it instead</button></div></li>
+              <li><b>Copy the text</b> and paste it into the same post, then send it.<pre id="posttext"></pre><div class="row"><button class="btn sm" type="button" id="copytext">Copy the text</button></div></li>
+            </ol>
+            <p class="note" style="margin:14px 0 0"><b>Post from the X account you typed above, and leave the post up.</b> We check every post again before the mint, and a deleted post loses the spot.</p></div>
+          <div class="field"><label for="posturl">Step 4: paste the link to your post</label><input id="posturl" type="url" placeholder="https://x.com/you/status/…" disabled autocomplete="off" spellcheck="false">
+            <div class="row" style="margin-top:10px"><button class="btn go" type="button" id="send" hidden>Put me on the list</button><button class="btn sm" type="button" id="already" hidden>Already applied?</button></div>
+            <p class="small dim" id="postnote" style="margin:0">This opens when the list opens.</p></div>
+          <p class="banner ok" id="done" hidden role="status"></p>
+        </div>
+      </form>
+      <div style="display:grid;gap:12px"><canvas id="card" class="sharecard" width="1200" height="675" role="img" aria-label="Your list card"></canvas><p class="small dim">Your card carries a crab made from your wallet and a pass code that ties your post to your wallet. Your X account is what shows the post is yours. The crab on the card is a mascot for your spot. The crab you mint is drawn at random later.</p></div>
+    </div>
+  </div>
+</section>
+<section class="beach beachq" data-queue data-tags data-check="queue" aria-label="The line for the list">
+  <div class="mc-tag mc-left"><b class="q-label"></b><span class="q-sub"></span></div>
+  <canvas class="px" aria-hidden="true"></canvas>
+  <div class="mc-tag mc-right q-right"><b class="q-mint"></b><span class="q-when"></span></div>
+  <p class="vh"></p>
+</section>
+<section class="band"><div class="wrap"><div class="head"><h2>How the list works</h2></div><div class="faq">
+<details open><summary>What do I have to do?</summary><div><p>Make your card, post it on X from your own account with the text we give you, then paste the link to that post here. We check the post is real and yours, and your wallet is on the list.</p></div></details>
+<details><summary>Can I delete the post afterwards?</summary><div><p>You can, but you lose your spot. We check every post again before the mint, and anything that has been deleted or hidden comes off the list. The post is the whole price of getting on it, so it has to still be there when the list closes.</p></div></details>
+<details><summary>Does being on the list get me a crab?</summary><div><p>It gets you the first round. The list mints before the public, and the public round opens at <span data-when="public">17:00 UTC</span>. The limit is <span data-cfg="collection.perWallet">2</span> crabs per wallet in total, whichever round you mint in. More wallets are on the list than there are crabs, so nobody is promised one: be there when it opens.</p></div></details>
+<details><summary>Why a post instead of a form?</summary><div><p>Forms get filled by bots in minutes. A post from a real account is much harder to fake, and it tells your friends about the crabs.</p></div></details>
+<details><summary>One wallet per person?</summary><div><p>One wallet per X account. Accounts that were made yesterday to farm spots get removed by hand before the mint.</p></div></details>
+<details><summary>Can people see which wallet is mine?</summary><div><p>Yes. The code on your card is made from your wallet address, so the post links your X account to that wallet for anyone who checks. Use a wallet you are happy to have linked to your X account. <span data-hunt="list"></span></p></div></details>
+<details><summary>What does the mint cost, and how many crabs are there?</summary><div><p><span data-cfg="collection.supply">2,222</span> crabs, <span data-cfg="collection.mintPrice">free</span> to mint, on <span data-cfg="collection.chainName">Robinhood Chain</span>.</p></div></details>
+<details><summary><span>Do I need <span data-cfg="token.symbol">$CRAB</span> to get on the list?</span></summary><div><p>No. <span data-cfg="token.symbol">$CRAB</span> does not exist yet. It launches after the mint, and you only need it then, to wake your crab and level its shell. <a href="/token/">How the token works.</a> <a href="/token/#ready">How to spot the real one on launch day.</a></p></div></details>
+<details><summary>Will you message me?</summary><div><p>No, never. We do not send direct messages, and we never ask for a seed phrase, a signature or a payment to be on the list. Anyone who does is not us.</p></div></details>
+</div></div></section>
+</main>
+<footer id="foot"></footer>
+<script src="/config.js?v=1790445814"></script>
+<script src="/js/art/engine.js?v=1790445814"></script>
+<script src="/js/art/crab.js?v=1790445814"></script>
+<script src="/js/art/world.js?v=1790445814"></script>
+<script src="/js/ui.js?v=1790445814"></script>
+<script src="/js/beach.js?v=1790445814"></script>
+<script src="/js/queue.js?v=1790445814"></script>
+<script src="/js/list.js?v=1790445814"></script>
+<script src="/js/hunt.js?v=1790445814"></script>
+</body>
+</html>

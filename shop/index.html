@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The island shop | Crab Market</title>
+<meta name="description" content="Island items for your crab. Burn $CRAB, the item lands on the island for good, and the crab gets a bigger slice of every hourly pot. Try them on before anything is live.">
+<link rel="canonical" href="https://crabmarket.io/shop/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://crabmarket.io/shop/">
+<meta property="og:title" content="The island shop | Crab Market">
+<meta property="og:description" content="Burn $CRAB, dress the island, get a bigger slice of the pot. Try every item on a live island.">
+<meta property="og:image" content="https://crabmarket.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffaf0">
+<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css?v=1790445814">
+<link rel="stylesheet" href="/css/shop.css?v=1790445814">
+</head>
+<body>
+<header id="top"></header>
+<main>
+
+<section class="band butter sh-top" data-check="hero">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">The island shop</span><h1 class="pix sh-h1">Dress the island. Get a bigger slice.</h1><p class="lede">Burn <span data-cfg="token.symbol">$CRAB</span> and an item lands on your crab's island for good. Each item gives the crab a bigger share of every hourly pot. <span id="shLive">Items are not on sale yet, so try them on for free.</span></p></div>
+    <p class="banner" id="shEmpty" hidden>The items are still being drawn. The catalogue will show up here before anything opens.</p>
+    <div class="sh-shop" id="shShop">
+      <div class="sh-stage" id="shStage">
+        <div class="stage"><span class="tag" id="shTag">Level 3</span><div class="frame"><canvas class="px" id="shSea" role="img" aria-label="A crab's island. Items you try on appear here."></canvas></div></div>
+        <div class="sh-panel" aria-live="polite" aria-atomic="true">
+          <div class="sh-share"><span class="lab">This crab's share of the pot</span><b id="shShare">1x</b><span class="lab" id="shMath">Level weight only. No items yet.</span></div>
+          <div class="sh-meters">
+            <div><span class="lab">Item slots</span><div class="sh-slots" id="shSlots"></div></div>
+            <div><span class="lab"><span class="sh-long">Bonus used, of the </span><span data-cfg="items.capPct">100</span>% cap<span class="sh-short"> used</span></span><div class="sh-cap"><i id="shCap"></i></div></div>
+          </div>
+          <div class="sh-burn"><span class="lab">Burned for these items</span><b id="shBurn">0</b></div>
+        </div>
+        <div class="lv" id="shLv" role="group" aria-label="Shell level" style="margin-top:0"><span class="lab">Shell level</span></div>
+        <div class="sh-act"><button class="btn go" type="button" disabled id="shBuy"><span>Opens with <span data-cfg="token.symbol">$CRAB</span></span></button><button class="btn" type="button" id="shClear">Take everything off</button><button class="btn" type="button" id="shCopy">Copy this island</button></div>
+        <p class="small dim" id="shMsg" role="status"></p>
+      </div>
+      <h2 class="vh">Every item</h2><div class="sh-cards" id="shCards"></div>
+    </div>
+    <p class="note"><b>The honest line:</b> items give your crab a bigger slice. They do not make the pot bigger. When other crabs buy items, your slice gets smaller again. No trading still means no pay.</p>
+  </div>
+</section>
+
+<section class="band mint" id="how" data-check="how">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">How items work</span><h2>Four rules, all in the contract.</h2></div>
+    <div class="grid sh-g4">
+      <article class="card"><span class="n">1</span><h3>Burned, all of it</h3><p>The whole price is burned. None of it goes to the team, and none goes back into the pot. The supply of <span data-cfg="token.symbol">$CRAB</span> gets smaller for good.</p></article>
+      <article class="card"><span class="n">2</span><h3>One slot per level</h3><p>A level 1 crab holds one item, a level 5 crab holds five. One of each item per crab. A sleeping crab cannot buy.</p></article>
+      <article class="card"><span class="n">3</span><h3>A hard cap</h3><p id="shCapText">Items can add at most <span data-cfg="items.capPct">100</span>% to a crab's level weight. A purchase that would go past the cap is refused, so nobody burns tokens for a bonus that does not count. Levelling up raises the cap.</p></article>
+      <article class="card"><span class="n">4</span><h3>Part of the crab</h3><p>An item is not a separate NFT. It stays on the island forever, and if you sell the crab the items go with it.</p></article>
+    </div>
+    <div class="row" style="margin-top:22px"><a class="btn go" href="/token/#sim">See what a slice could pay</a><a class="btn" href="/token/#ladder">The burn ladder</a></div>
+  </div>
+</section>
+
+</main>
+<footer id="foot"></footer>
+<script src="/config.js?v=1790445814"></script>
+<script src="/js/art/engine.js?v=1790445814"></script>
+<script src="/js/art/crab.js?v=1790445814"></script>
+<script src="/js/art/world.js?v=1790445814"></script>
+<script src="/js/ui.js?v=1790445814"></script>
+<script src="/js/shop.js?v=1790445814"></script>
+<script src="/js/hunt.js?v=1790445814"></script>
+</body>
+</html>

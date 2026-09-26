@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crab Market | hermit crabs that get paid every hour</title>
+<meta name="description" content="2,222 pixel hermit crabs on Robinhood Chain. Every hour the tide drops digital dollars into your crab's tide pool. Claim it before another crab raids it.">
+<link rel="canonical" href="https://crabmarket.io/">
+<meta property="og:url" content="https://crabmarket.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Crab Market | hermit crabs that get paid every hour">
+<meta property="og:description" content="2,222 pixel hermit crabs on Robinhood Chain. Every hour the tide fills your crab's pool, and another crab can raid it before you claim.">
+<meta property="og:image" content="https://crabmarket.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffaf0">
+<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css?v=1790445814">
+</head>
+<body>
+<header id="top"></header>
+<main>
+
+<section class="beach mintclock" id="mintclock" data-check="mintclock" aria-label="Countdown to the mint" hidden>
+  <div class="mc-tag mc-left"><b id="mcLabel">The mint opens in</b><span id="mcSub"></span></div>
+  <canvas class="px" id="mcCanvas" aria-hidden="true"></canvas>
+  <div class="mc-tag mc-right"><span class="mc-when" id="mcWhen">Opens</span><b><span id="mcDate"></span> <span id="mcHour"></span></b><span id="mcLocal"></span><a class="btn os mc-os" data-os="long" href="#" hidden></a></div>
+  <p class="vh" id="mcText" role="timer" aria-live="off"></p>
+</section>
+
+<section class="hero" data-check="hero">
+  <div class="wrap">
+    <div class="hero-left">
+      <div class="hero-intro">
+        <h1><span>Hermit crabs</span> <span>that <em>get paid</em></span> <span>every hour.</span></h1>
+        <p class="lede">Every hour your crab gets a cut of the <b data-cfg="token.symbol">$CRAB</b> trading fees, in dollars. Claim it before another crab does.</p>
+      </div>
+      <div class="hero-cta">
+        <div class="row">
+          <a class="btn go big" href="/list/" data-check="cta" data-cta id="heroCta">Get on the list</a>
+          <a class="btn big" href="/token/" data-os="alt">How <span data-cfg="token.symbol">$CRAB</span> works</a>
+        </div>
+      </div>
+      <dl class="stats" aria-label="Key facts">
+        <div><dt>crabs</dt><dd data-cfg="collection.supply">2,222</dd></div>
+        <div><dt>to mint</dt><dd data-cfg="collection.mintPrice">free</dd></div>
+        <div><dt>paid in <span data-cfg="payouts.symbol">USDG</span></dt><dd>Hourly</dd></div>
+        <div id="heroStatus"><dt>the list opens</dt><dd><i aria-hidden="true"></i>Soon</dd></div>
+      </dl>
+    </div>
+    <div class="stage" data-check="stage">
+      <span class="tag" id="heroTag" aria-live="polite">Level 3</span>
+      <div class="frame"><canvas class="px" id="heroSea" role="img" aria-label="A small pixel island with a hermit crab walking on it. The island grows as the shell levels up."></canvas><canvas class="px fx" id="heroFx" width="368" height="240" aria-hidden="true"></canvas></div>
+      <div class="burnrow"><button class="btn burn gold" type="button" id="heroBurn">Burn $CRAB: wake it up</button><span class="pix small" id="heroSay" aria-live="polite"></span></div>
+      <figure class="nft" style="margin:0"><canvas class="px" id="heroNft" width="32" height="32" role="img" aria-label="The same crab as an NFT"></canvas><span>the same crab, as the NFT</span></figure>
+      <div class="lv" id="heroLv" role="group" aria-label="Shell level"><span class="lab">Shell level</span></div>
+    </div>
+  </div>
+</section>
+
+
+<div class="marq" aria-hidden="true"><div class="lane" id="lane1"></div><div class="lane rev" id="lane2"></div></div>
+
+<section class="band" id="my" data-check="my">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">My crabs</span><h2 class="pix">Your crabs, your tide pools.</h2><p class="lede" id="myState">Connect a wallet that holds crabs to wake them, level them up and claim their tide pools.</p></div>
+    <div class="row my-top">
+      <button class="btn go" id="connect" type="button">Connect wallet</button>
+      <div class="my-who" id="who" hidden><span class="tag" id="whoChain">Robinhood Chain</span><b id="whoAddr" class="mono"></b><button class="btn sm" id="switch" type="button" hidden>Switch network</button><button class="btn sm" id="refresh" type="button">Refresh</button></div>
+      <p id="noWallet" hidden>No wallet found in this browser. Install MetaMask, or open this page inside your wallet's browser.</p>
+      <span class="tag" id="myLoading" hidden>Reading the chain…</span>
+    </div>
+    <dl class="my-bar" id="myBar" hidden>
+      <div><dt>Crabs</dt><dd id="sCrabs">0</dd></div>
+      <div><dt>Awake</dt><dd id="sAwake">0</dd></div>
+      <div><dt>In the pools</dt><dd id="sPool">$0.00</dd></div>
+      <div><dt><span data-cfg="token.symbol">$CRAB</span> in the wallet</dt><dd id="sBal">—</dd></div>
+      <div id="sCreditRow" hidden><dt>Banked pay</dt><dd id="sCredit">$0.00</dd></div>
+      <div class="my-barbtn"><button class="btn sm gold" id="claimAll" type="button" hidden>Claim every pool</button><button class="btn sm" id="withdraw" type="button" hidden>Withdraw banked pay</button></div>
+    </dl>
+    <p id="myEmpty" hidden>This wallet holds no crab. Crabs trade on <a href="https://opensea.io/collection/crabmarketio" target="_blank" rel="noopener">OpenSea</a>.</p>
+    <div class="my-grid" id="myGrid" hidden></div>
+    <ul class="my-log" id="myLog" hidden aria-live="polite"></ul>
+  </div>
+</section>
+<section class="band" id="two" data-check="two">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">One machine, two parts</span><h2>The crabs earn. <span data-cfg="token.symbol">$CRAB</span> is what feeds them.</h2><p class="lede">You can hold either one, or both. They need each other: no trading, no pay. No crabs, no reason to burn the token.</p></div>
+    <div class="grid g2">
+      <article class="card duo"><div class="duo-top sky"><canvas class="px" id="duoNft" width="32" height="32" role="img" aria-label="The hero crab at level 5, with five gold pips and a gold frame"></canvas></div><div class="duo-body"><span class="n">The collection</span><h3><span data-cfg="collection.supply">2,222</span> crabs</h3><ul class="ticks"><li>Paid every hour, in dollars, into its own tide pool.</li><li>Each crab has its own island, and no two are alike.</li><li>Level up the shell for a bigger share. The level and the island show on this site.</li></ul><div class="row"><a class="btn go sm" href="/list/" data-cta>Get on the list</a><a class="btn sm" href="/meet/">Meet a crab</a></div></div></article>
+      <article class="card duo"><div class="duo-top butter"><img class="px coinimg" src="/img/coin.png" width="160" height="160" alt="The $CRAB token logo: the orange crab on a gold coin"></div><div class="duo-body"><span class="n">The token</span><h3><span data-cfg="token.symbol">$CRAB</span></h3><ul class="ticks"><li>Every trade pays a small fee. A fixed share of it fills the hourly pot.</li><li>Waking a crab and levelling its shell burns <span data-cfg="token.symbol">$CRAB</span> for good.</li><li id="tokenState">Not live yet. It launches on <span data-cfg="token.launchpad">Pons</span> after the mint. The only real address will be posted on this site. <span data-hunt="home2"></span></li></ul><div class="row"><a class="btn go sm" href="/token/">How <span data-cfg="token.symbol">$CRAB</span> works</a></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="band mint" id="how" data-check="how">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">How it works</span><h2>A crab, a shell, an island, a tide.</h2><p class="lede">Four steps from mint to pay. The pay is USDG, a digital dollar, bought with the fees from <span data-cfg="token.symbol">$CRAB</span> trading.</p></div>
+    <div class="grid g4">
+      <article class="card pic"><canvas class="px" id="how1" width="32" height="32" role="img" aria-label="A crab asleep beside its shell"></canvas><span class="n">Step 1</span><h3>Mint a crab</h3><p>Minting is <span data-cfg="collection.mintPrice">free</span>: you pay only the network fee. Your crab arrives asleep. Token number 1 is picture number 1, forever: you see your crab the moment you mint it.</p></article>
+      <article class="card pic"><canvas class="px" id="how2" width="32" height="32" role="img" aria-label="The same crab awake at level 1"></canvas><span class="n">Step 2</span><h3>Wake it up</h3><p>Burn some <span data-cfg="token.symbol">$CRAB</span> to wake your crab. It climbs into its shell, its island turns from grey to colour, and it starts earning.</p></article>
+      <article class="card pic"><canvas class="px" id="how3" width="32" height="32" role="img" aria-label="The same crab at level 5 with a gold frame"></canvas><span class="n">Step 3</span><h3>Level up the shell</h3><p>Five levels. Each one burns more <span data-cfg="token.symbol">$CRAB</span>, gives the crab a bigger share of the pay, and grows its island. The level shows on this site, on the island and as pips over the crab.</p></article>
+      <article class="card pic"><canvas class="px" id="how4" width="32" height="32" role="img" aria-label="The same crab with money eyes, holding a coin"></canvas><span class="n">Step 4</span><h3>The tide pays</h3><p>Every hour the pot buys <span data-cfg="payouts.assets">USDG (digital dollars)</span> and credits it to each awake crab's tide pool. Claim it and it is paid straight to you.</p></article>
+    </div>
+    <div class="row" style="margin-top:clamp(14px,2vw,22px)"><a class="btn go sm" href="/token/#sim">See what a crab could earn</a><a class="btn sm" href="/sea/">Look around the sea</a></div>
+  </div>
+</section>
+
+<section class="band lilac" data-check="shells">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">The collection</span><h2><span data-cfg="collection.shells">33</span> shells and <span data-cfg="collection.legendaries">10</span> legends.</h2><p class="lede">A crab will live in anything: real shells, a tin can, a safe, a rubber duck, a rocket. Ten one-of-a-kind legends are in the mint. Every picture, legends included, is public before the mint opens, and token number 1 is picture number 1: what you mint is what you see, at once.</p></div>
+    <div class="tiles big" id="legends" style="margin-bottom:22px"></div>
+    <div class="tiles" id="shells"></div>
+  </div>
+</section>
+
+<section class="band sand" data-check="isles">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Every island is different</span><h2>Six owners. Six top-level islands.</h2><p class="lede">An island is built from its crab's own number: the coastline, the colours, what gets built and what swims past. Yours will not look like anyone else's, and it will look the same every time you visit.</p></div>
+    <div class="cmp" id="cmp" style="--cut:44%"><canvas class="px" id="cmpB" role="img" aria-label="An island at level 5: a lighthouse, a hut, palms and a dock"></canvas><div class="cmpA"><canvas class="px" id="cmpA" role="img" aria-label="The same island asleep: grey sand and a sleeping crab"></canvas></div><span class="tag l">Asleep</span><span class="tag r">Level 5</span><input type="range" id="cmpR" min="0" max="100" value="44" aria-label="Slide between the sleeping island and the same island at level 5"><span class="knob" aria-hidden="true"></span></div>
+    <p class="lede" style="margin:14px 0 26px">Same crab, same island. Slide to see what burning <span data-cfg="token.symbol">$CRAB</span> does to it.</p>
+    <div class="isles" id="isles"></div>
+  </div>
+</section>
+
+
+<section class="band butter" id="items" data-check="items">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">The shop</span><h2>Dress the island. Get a bigger slice.</h2><p class="lede">Burn <span data-cfg="token.symbol">$CRAB</span> to buy things for your crab's island. Each one adds to its share of the hourly pot, and it stays with the crab forever. A level 1 crab has a share of 1x, so +0.5x is half a crab more.</p></div>
+    <div class="tiles itemwall" id="itemwall"></div>
+    <p class="note" style="margin-top:22px"><b>Items give your crab a bigger slice. They do not make the pot bigger.</b> When other crabs buy items, your slice gets smaller again.</p>
+    <div class="row" style="margin-top:18px"><a class="btn go" href="/shop/">Try them on an island</a></div>
+  </div>
+</section>
+
+<section class="band sea" id="tide" data-check="tide">
+  <div class="wrap tide">
+    <div class="head" style="margin:0"><span class="eyebrow">The tide</span><h2>Every hour, on the hour, the crabs get paid.</h2>
+      <ul class="ticks onsea"><li>All hour long, people trade <span data-cfg="token.symbol">$CRAB</span> and a share of every trade fills the pot.</li><li>At :00 the pot buys <span data-cfg="payouts.assets">USDG (digital dollars)</span>.</li><li>Each awake crab's share drops into its tide pool, where it waits to be claimed.</li></ul>
+      <p class="lede" id="tideNote">The token is not live yet, so today the clock only shows the rhythm. If nobody trades in an hour, that hour pays nothing.</p>
+      <div class="row"><a class="btn go" href="/token/#sim">See what one crab could get</a><a class="btn" href="/token/#loop">The full loop</a></div></div>
+    <div class="clock" role="timer" aria-live="off" data-tideclock><span class="lab">Next tide in</span><span class="digits" id="tideDigits">00:00</span><div class="bar"><i id="tideBar"></i></div><span class="lab" id="potLine">The pot size will show here once <span data-cfg="token.symbol">$CRAB</span> is live.</span></div>
+    <div class="poolstates" id="pools" data-check="pools">
+      <div class="ps-head"><h3>Then someone tries to take it.</h3><p>Pay waits in the pool on your crab's island until you claim it. Any awake crab can raid a pool and take <span data-cfg="raid.takePct">50</span>% of what is sitting there, and every raid burns <span data-cfg="raid.fee">10,000</span> <span data-cfg="token.symbol">$CRAB</span>.</p><a class="btn go sm" href="/raids/">Watch a raid happen</a></div>
+      <ul class="ps-list">
+        <li><b>Safe</b><span>Anything you claimed. Your crab, its level and its items can never be taken.</span></li>
+        <li><b>At risk</b><span>Pay you left sitting: half of it, once every <span data-cfg="raid.cooldownHours">12</span> hours. Pools under <span data-cfg="raid.minPool">5</span> USDG cannot be raided at all.</span></li>
+        <li><b>Out</b><span>A sleeping crab. It earns nothing, so it has no pool: it cannot raid and cannot be raided.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="band butter" id="when" data-check="when">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">What happens when</span><h2>Three steps, in this order.</h2><p class="lede" id="whenLede">Nothing is live yet. When a step opens, it changes here first.</p></div>
+    <ol class="when" id="whenList"><li data-step="list"><b>1. The list</b><span>Post your card on X and your wallet mints first.</span><em>Opens soon</em><a class="btn sm go whengo" href="/list/">Get on the list</a></li><li data-step="mint"><b>2. The mint</b><span><span data-cfg="collection.supply">2,222</span> crabs, <span data-cfg="collection.mintPrice">free</span> to mint. Every crab is revealed the moment it is minted.</span><em>Date not set</em><a class="btn sm whengo" href="/docs/#mint">How the mint works</a></li><li data-step="token"><b>3. <span data-cfg="token.symbol">$CRAB</span> launches</b><span>On <span data-cfg="token.launchpad">Pons</span>, after the mint. The first tide follows within the hour.</span><em>After the mint</em><a class="btn sm whengo" href="/token/">How the token works</a></li></ol>
+  </div>
+</section>
+
+<section class="band sky" data-check="ctaband">
+  <div class="wrap cta">
+    <div class="head" style="margin:0"><h2>The list mints first.</h2><p class="lede">Post your card on X and you are on it. It takes about a minute.</p></div>
+    <div class="row"><a class="btn go" href="/list/" data-cta>Get on the list</a><span class="pix small" id="listCount" hidden></span></div>
+  </div>
+</section>
+
+<section class="beach beachq" data-queue data-check="queue" aria-label="The line for the list">
+  <canvas class="px" aria-hidden="true"></canvas>
+  <p class="vh"></p>
+</section>
+
+<section class="band" id="faq" data-check="faq">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Questions</span><h2>Short answers.</h2></div>
+    <div class="faq">
+      <details><summary>Is anything live yet?</summary><div><p id="faqLive">No. There is no mint and no token today. The list is the first thing to open. If you see a token with our name before we announce it here, it is fake.</p></div></details>
+      <details><summary>What does the mint cost?</summary><div><p>Nothing: the mint is <span data-cfg="collection.mintPrice">free</span>. You pay only the network fee, which on <span data-cfg="collection.chainName">Robinhood Chain</span> is a fraction of a cent.</p></div></details>
+      <details><summary>Where does the hourly pay really come from?</summary><div><p>From trading fees on <span data-cfg="token.symbol">$CRAB</span>. A fixed share of those fees goes into a pot. Once an hour the pot buys <span data-cfg="payouts.assets">USDG (digital dollars)</span> and hands them to the awake crabs.</p><p>If trading is quiet the pot is small. If nobody trades, that hour pays nothing.</p></div></details>
+      <details><summary>Where does my pay actually go?</summary><div><p>Into your crab's tide pool, where it waits until you claim it. Claiming pays you directly. While it waits, another crab can raid the pool and take half of what is in it, so claim it when it is worth claiming. If you sell the crab, whatever is in the pool settles to you rather than to the buyer. <a href="/raids/">How raiding works.</a></p></div></details>
+      <details><summary>Which crab will I get?</summary><div><p>The one with your token number: crab number 1 is picture number 1, forever, and you see it the moment you mint. The whole collection, legends included, is published before the mint opens at an address the contract locks and nobody can change, so anyone can look through it and time a legend at the counter. We chose the simplest reveal knowing that. Nothing about the picture ever changes; the level, the items and the pool are shown on this site.</p></div></details>
+      <details><summary><span>Do I get paid for holding <span data-cfg="token.symbol">$CRAB</span>?</span></summary><div><p>No. Only awake crabs get paid. <span data-cfg="token.symbol">$CRAB</span> is what wakes them, levels them up, and fills the pot when it is traded. <a href="/token/#tfaq">More token questions are answered here.</a></p></div></details>
+      <details><summary>What are island items?</summary><div><p>Things you buy for your crab's island by burning <span data-cfg="token.symbol">$CRAB</span>: a hot tub, a jukebox, a helipad. Each one raises the crab's share of the hourly pot, and it stays with the crab forever. A crab has one item slot per shell level, and items can never add more than <span data-cfg="items.capPct">100</span>% to its level weight. They give you a bigger slice, they do not make the pot bigger. <a href="/shop/">Try them in the shop.</a></p></div></details>
+      <details><summary><span>Do I need <span data-cfg="token.symbol">$CRAB</span> to mint?</span></summary><div><p>No. You mint with ETH. You only need <span data-cfg="token.symbol">$CRAB</span> later, to wake your crab and level its shell.</p></div></details>
+      <details><summary>What happens when I sell a crab?</summary><div><p>It goes back to sleep, and the buyer has to wake it again. Anything still in its pool settles to you, the seller, so you keep what it earned and there is nothing to empty first. The <span data-cfg="token.symbol">$CRAB</span> you burned does not come back. Its shell level is permanent: the buyer only has to wake it again, and the level shows on the OpenSea listing.</p></div></details>
+      <details><summary>Can I own more than one?</summary><div><p>Yes. Each crab keeps its own island and its own level. Your page shows all your islands together in one sea. <span data-hunt="home"></span></p></div></details>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sticky" id="sticky"><a class="btn go sm" href="/list/" data-cta>Get on the list</a><a class="btn sm" href="/token/" id="stickyAlt"><span data-cfg="token.symbol">$CRAB</span></a></div>
+</main>
+<footer id="foot"></footer>
+<script src="/config.js?v=1790445814"></script>
+<script src="/js/art/engine.js?v=1790445814"></script>
+<script src="/js/art/crab.js?v=1790445814"></script>
+<script src="/js/art/world.js?v=1790445814"></script>
+<script src="/js/ui.js?v=1790445814"></script>
+<script src="/js/art/decode.js?v=1790445814"></script>
+<script src="/js/home.js?v=1790445814"></script>
+<script src="/js/my.js?v=1790445814"></script>
+<script src="/js/beach.js?v=1790445814"></script>
+<script src="/js/mintclock.js?v=1790445814"></script>
+<script src="/js/queue.js?v=1790445814"></script>
+<script src="/js/tideclock.js?v=1790445814"></script>
+<script src="/js/hunt.js?v=1790445814"></script>
+</body>
+</html>

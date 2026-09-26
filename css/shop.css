@@ -1,0 +1,71 @@
+/* /shop/ page only. Shared styles live in site.css; classes here start with sh-. */
+.sh-top{padding-block:clamp(32px,5vw,56px)}
+.sh-h1{font-size:clamp(28px,4.4vw,46px);line-height:1.1}
+.sh-shop{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(18px,3vw,36px);align-items:start}
+.sh-stage{position:sticky;top:84px;display:grid;gap:14px;min-width:0}
+.sh-panel{background:var(--ink);color:var(--paper);border:var(--bd);box-shadow:6px 6px 0 var(--coral);padding:16px;display:grid;gap:14px}
+.sh-panel .lab{font:400 12px/1.4 var(--pix);color:#a9c4d8;display:block}
+.sh-share b{display:block;font:400 clamp(30px,4.4vw,44px)/1.1 var(--pix);color:var(--butter);margin:4px 0}
+.sh-share #shMath{font:600 14.5px/1.4 var(--body);color:#d9e4ec}
+.sh-meters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:end}
+.sh-slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin-top:6px}
+.sh-slots i{display:block;height:16px;border:2px solid #a9c4d8}
+.sh-slots i.on{background:var(--butter);border-color:var(--butter)}
+.sh-slots i.shut{border-style:dashed;opacity:.45}
+.sh-cap{height:16px;border:2px solid #a9c4d8;margin-top:6px}
+.sh-cap i{display:block;height:100%;width:0;background:var(--aqua);transition:width .25s ease-out}
+.sh-cap i.full{background:var(--coral)}
+.sh-burn b{display:block;font:400 18px/1.2 var(--pix);color:#fff;margin-top:4px}
+.sh-act{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.sh-act .btn{white-space:normal;text-align:center;line-height:1.3;padding-inline:8px}
+.sh-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;min-width:0}
+.sh-card{position:relative;padding:12px;gap:8px;display:flex;flex-direction:column}
+.sh-card .sh-facts{margin-top:auto}
+.sh-card.on{background:var(--mint);box-shadow:6px 6px 0 var(--ink);transform:translate(-2px,-2px)}
+.sh-card h3{font-size:14px}
+.sh-card p{font-size:14.5px;line-height:1.4}
+.sh-pic{height:128px;display:grid;place-items:center;background:var(--sky);border:2px solid var(--ink)}
+.sh-ltd .sh-pic{background:var(--lilac)}
+.sh-pic canvas{border:0;width:auto}
+.sh-fort{grid-column:1/-1;display:grid;grid-template-columns:200px minmax(0,1fr);align-items:center;gap:0 16px;background:var(--lilac)}
+.sh-fort .sh-pic{grid-row:1/6;height:100%;min-height:150px;background:#efe6ff}
+.sh-fort h3,.sh-fort p,.sh-fort .sh-facts,.sh-fort .btn,.sh-fort .sh-why{grid-column:2}
+.sh-fort .sh-facts{margin-top:4px}
+.sh-card.sh-fort .btn{justify-self:start;padding-inline:26px}
+.sh-fort .sh-pic canvas{height:132px}
+@media (max-width:680px){.sh-fort{grid-template-columns:1fr}.sh-fort .sh-pic{grid-row:auto;min-height:120px}.sh-fort h3,.sh-fort p,.sh-fort .sh-facts,.sh-fort .btn,.sh-fort .sh-why{grid-column:1}.sh-fort p{display:block}}
+.sh-ed{position:absolute;top:6px;right:6px;font:400 10.5px/1 var(--pix);background:var(--coral);color:var(--ink);border:2px solid var(--ink);padding:4px 6px}
+.sh-facts{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:14px}
+.sh-facts dt{font:400 11px/1.7 var(--pix);color:var(--ink2)}
+.sh-facts dd{margin:0;font-weight:800;text-align:right}
+.sh-card .btn{justify-self:stretch}
+.sh-why{font-size:13px;color:var(--ink2);min-height:1.3em}
+.sh-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1100px){.sh-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.sh-g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+  .sh-shop{grid-template-columns:1fr}
+  .sh-stage{position:static}
+  .sh-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:680px){.sh-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sh-card p{display:none}.sh-pic{height:120px}}
+@media (max-width:620px){
+  .sh-g4{grid-template-columns:1fr}
+  .sh-act{grid-template-columns:1fr}
+  /* on a phone the island and its numbers stay in view while the cards scroll under them */
+  .sh-stage{position:sticky;top:64px;z-index:10;background:var(--butter);padding:8px 0 10px;gap:8px;margin-inline:calc(var(--gut) * -1);padding-inline:var(--gut);border-bottom:var(--bd)}
+  .sh-stage .frame{aspect-ratio:184/72}
+  .sh-stage .stage .tag{top:6px;left:6px;padding:5px 7px;font-size:11px}
+  .sh-panel{padding:10px 12px;gap:8px;box-shadow:4px 4px 0 var(--coral);grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .sh-share{grid-column:1/-1}.sh-share b{font-size:24px;display:inline-block;margin:0 8px 0 0}.sh-share .lab:first-child{display:none}.sh-share #shMath{display:inline;font-size:13px}
+  .sh-meters{grid-column:1/-1;gap:10px}.sh-meters .lab{font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sh-slots i,.sh-cap{height:12px}
+  .sh-burn{grid-column:1/-1;display:flex;gap:8px;align-items:baseline}.sh-burn b{font-size:14px;margin:0}
+  .sh-act,.sh-stage #shMsg{display:none}
+}
+@media (prefers-reduced-motion:reduce){.sh-cap i{transition:none}.sh-card.on{transform:none}}
+#how{scroll-margin-top:64px}
+
+.sh-short{display:none}
+@media (max-width:620px){.sh-long{display:none}.sh-short{display:inline}}
+
+/* the four rules are very different lengths; centring shares the spare space instead of pooling it at the foot */
+#how .card{align-content:center}

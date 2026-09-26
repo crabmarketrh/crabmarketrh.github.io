@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meet a crab | Crab Market</title>
+<meta name="description" content="Type anything, a name or a wallet, and meet the crab and the island it makes. Level it up and save the card.">
+<link rel="canonical" href="https://crabmarket.io/meet/">
+<meta property="og:url" content="https://crabmarket.io/meet/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meet a crab | Crab Market">
+<meta property="og:description" content="Type anything, a name or a wallet, and meet the crab and the island it makes. Level it up and save the card.">
+<meta property="og:image" content="https://crabmarket.io/img/og-meet.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffaf0">
+<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css?v=1790445814">
+</head>
+<body>
+<header id="top"></header>
+<main>
+<section class="band butter" style="padding-block:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Playground</span><h1 class="pix" style="font-size:clamp(28px,4.4vw,46px);line-height:1.1">Meet a crab.</h1><p class="lede">Type anything: your name, your wallet, your dog's name. The same words always make the same crab and the same island.</p></div>
+    <div class="meet">
+      <div style="display:grid;gap:18px">
+        <form class="field" id="form" autocomplete="off">
+          <label for="seed">Your words</label>
+          <input id="seed" name="seed" type="text" maxlength="64" placeholder="type anything" spellcheck="false">
+          <div class="row"><button class="btn go" type="submit">Meet it</button><button class="btn" type="button" id="dice">Surprise me</button></div>
+        </form>
+        <div class="idcard">
+          <canvas class="px" id="nft" width="32" height="32" role="img" aria-label="Your crab"></canvas>
+          <dl class="traits" id="traits"></dl>
+        </div>
+      </div>
+      <div class="stage" style="display:grid;gap:14px">
+        <div style="position:relative"><span class="tag" id="tag">Level 3</span><div class="frame"><canvas class="px" id="sea" role="img" aria-label="The island this crab would live on"></canvas></div></div>
+        <div class="lv" id="lv" role="group" aria-label="Shell level" style="margin-top:0"><span class="lab">Shell level</span></div>
+        <p class="lvsay" id="lvsay"></p>
+        <div class="row"><button class="btn go" type="button" id="save">Save the card</button><button class="btn" type="button" id="evo">Save its whole life</button><button class="btn" type="button" id="copy">Copy the link</button></div>
+        <p class="small dim" id="msg" role="status"></p>
+        <div class="row"><a class="btn" href="/list/" data-cta>Get on the list</a><a class="btn" href="/token/#ladder">How levels work</a></div>
+        <p class="note" style="margin-top:4px"><b>This is a toy.</b> It shows how crabs and islands are made. The real crab you get is drawn at random when the mint ends, so it will not be this one. <span data-hunt="meet"></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="foot"></footer>
+<script src="/config.js?v=1790445814"></script>
+<script src="/js/art/engine.js?v=1790445814"></script>
+<script src="/js/art/crab.js?v=1790445814"></script>
+<script src="/js/art/world.js?v=1790445814"></script>
+<script src="/js/ui.js?v=1790445814"></script>
+<script src="/js/meet.js?v=1790445814"></script>
+<script src="/js/hunt.js?v=1790445814"></script>
+</body>
+</html>
